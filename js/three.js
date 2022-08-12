@@ -1,31 +1,32 @@
 init();
 
-  async function init() {
-    const parentCanvas = document.getElementById('parentCanvas');
-    const childCanvas = document.getElementById('childCanvas');
-    const canvas = document.createElement('canvas');
-    childCanvas.appendChild(canvas);
-    parentCanvas.appendChild(childCanvas);
-    document.body.appendChild(parentCanvas);
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-    const scene = new THREE.Scene();
-    const width = window.innerWidth;
-    const height = window.innerHeight/2;
-    renderer.setPixelRatio(1);
-    renderer.setSize(width, height);
-    const camera = new THREE.PerspectiveCamera(10, width / height, 1, 100);
-    camera.position.set(0, 0, 100);
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
-    // controls.maxDistance = 1;
-    controls.maxDistance = 40;
-    const light = new THREE.AmbientLight(0xFFFFFF, 1.0);
-    scene.add(light);
-    const loader = new THREE.GLTFLoader();
-    const url = './scene.gltf';
-    const model = await (() => {
-      return new Promise((resolve) => {
-        loader.load(url,(gltf) => {resolve(gltf.scene);});
-      });
+async function init() {
+  const parentCanvas = document.getElementById('parentCanvas');
+  const childCanvas = document.getElementById('childCanvas');
+  const canvas = document.createElement('canvas');
+  childCanvas.appendChild(canvas);
+  parentCanvas.appendChild(childCanvas);
+  document.body.appendChild(parentCanvas);
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  const scene = new THREE.Scene();
+  const width = window.innerWidth;
+  const height = window.innerHeight/2;
+  renderer.setPixelRatio(1);
+  renderer.setSize(width, height);
+  const camera = new THREE.PerspectiveCamera(10, width / height, 1, 100);
+  camera.position.set(0, 0, 100);
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  // controls.maxDistance = 1;
+  controls.maxDistance = 40;
+  const light = new THREE.AmbientLight(0xFFFFFF, 1.0);
+  scene.add(light);
+  const loader = new THREE.GLTFLoader();
+  const url = './img/scene.gltf';
+
+  const model = await (() => {
+    return new Promise((resolve) => {
+      loader.load(url,(gltf) => {resolve(gltf.scene);});
+    });
   })(); 
 
   model.position.set(0, 0, 0);
@@ -44,5 +45,4 @@ init();
     if (model.rotation.y) model.rotation.y += 0.02;
     renderer.render(scene, camera);
   }
-
 }
