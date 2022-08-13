@@ -10,7 +10,7 @@ async function init() {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   const scene = new THREE.Scene();
   const width = window.innerWidth;
-  const height = window.innerHeight/2;
+  const height = window.innerHeight / 2;
   renderer.setPixelRatio(1);
   renderer.setSize(width, height);
   renderer.shadowMap.enabled = true;
@@ -26,14 +26,14 @@ async function init() {
 
   const model = await (() => {
     return new Promise((resolve) => {
-      loader.load(url,(gltf) => {resolve(gltf.scene);});
+      loader.load(url, (gltf) => { resolve(gltf.scene); });
     });
-  })(); 
+  })();
 
   model.position.set(0, 0, 0);
   scene.add(model);
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(width/1.2, height);
+  renderer.setSize(width / 1.2, height);
   renderer.setAnimationLoop(tick);
   setLight();
   function tick() {
@@ -48,7 +48,7 @@ async function init() {
     renderer.render(scene, camera);
   }
 
-  function setLight(){
+  function setLight() {
     const positionArr = [
       [1, 5, 3.5, 6],
       [0, 1, 2, 4],
@@ -63,5 +63,5 @@ async function init() {
       }
       scene.add(directionalLight);
     }
-}
+  }
 }
