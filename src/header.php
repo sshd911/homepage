@@ -7,10 +7,10 @@
     <div></div>
     <div></div>
     <div class="flex flex-wrap justify-between items-center ">
-      <div class="p-4 pr-4 m-2 bg-gray-300 opacity-20 rounded-lg">
+      <div x-on:click="about=true; archives=false" class="p-4 pr-4 m-2 bg-gray-300 opacity-20 rounded-lg">
         <div class="text-bold text-gray">About</div>
       </div>
-      <div class="p-4 pl-4 m-2 mr-0 bg-gray-300 opacity-20 rounded-lg">
+      <div x-on:click ="archives=true;about=false" class="p-4 pl-4 m-2 mr-0 bg-gray-300 opacity-20 rounded-lg">
         <div class="text-bold text-gray">Archives</div>
       </div>
     </div>
