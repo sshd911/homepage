@@ -42,3 +42,22 @@
     </div>
   </div>
 </div>
+<!-- -->
+<div x-show="credit" class="container mx-auto">
+  <div class="flex flex-col text-center w-full text-gray">
+    <div class="text-left border-b-2 border-gray-500">
+      <div class="text-white font-bold text-xl">Credit</div>
+    </div>
+    <div class="mt-4 flex flex-col bg-gray-300 opacity-20 rounded-lg">
+      <div class="flex flex-col text-left">
+        <div class="flex-1 mt-2 ml-2">* title:	Minecraft - Steve</div>
+        <div class="flex-1 ml-2">* source:	https://sketchfab.com/3d-models/minecraft-steve-cb228dcc137042cc9a3dc588758cc6e9</div>  
+        <div class="flex-1 ml-2">* author:	Vincent Yanez (https://sketchfab.com/vinceyanez)</div>
+        <div class="flex-1 mt-2 ml-2">Model License:</div>
+        <div class="flex-1 ml-2">* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)</div>
+        <div class="flex-1 ml-2">* requirements:	Author must be credited. Commercial use is allowed.</div>
+        <div class="flex-1 ml-2 mt-2">If you use this 3D model in your project be sure to copy paste this credit wherever you share it:</div>
+        <div class="flex-1 ml-2 mb-2 font-bold">This work is based on "Minecraft - Steve" (https://sketchfab.com/3d-models/minecraft-steve-cb228dcc137042cc9a3dc588758cc6e9) by Vincent Yanez (https://sketchfab.com/vinceyanez) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)</div>
+      </div>
+    </div>
+</div>

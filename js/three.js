@@ -28,7 +28,7 @@ async function init() {
       loader.load(url, (gltf) => { resolve(gltf.scene); });
     });
   })();
-
+  model.scale.set(0.2,0.2,0.2)
   model.position.set(0, 0, 0);
   scene.add(model);
   renderer.setPixelRatio(window.devicePixelRatio);
