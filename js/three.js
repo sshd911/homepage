@@ -17,7 +17,6 @@ async function init() {
   const camera = new THREE.PerspectiveCamera(10, width / height, 1, 100);
   camera.position.set(0, 0, 100);
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
-  // controls.maxDistance = 1;
   controls.maxDistance = 40;
   const light = new THREE.AmbientLight(0xFFFFFF, 1.0);
   scene.add(light);

@@ -12,12 +12,10 @@
     <script src="https://unpkg.com/three@0.139.2/examples/js/loaders/GLTFLoader.js"></script>
 	</head>
 	<body class="bg-zinc-900">
-		<?php require_once('./src/header.php'); ?>
-		<div id="parentCanvas" class="mt-8 mr-8 container mx-auto">
-			<div id="childCanvas" class="pr-8">
-				<script src="js/three.js"></script>
-			</div>
-		</div>
-		<?php require_once('./src/footer.php'); ?>
+		<?php require_once('./src/header.php') ?>
+		<script src="js/main.js" ></script>
+		<script src="js/three.js" ></script>
+		<?php require_once('./src/content.php') ?>
+		<?php require_once('./src/footer.php') ?>
 	</body>
 </html>
