@@ -24,8 +24,8 @@
     </div>
     <div class="mt-4 flex flex-col bg-gray-300 opacity-20 rounded-lg">
       <div class="flex flex-col text-left">
-        <div class="flex-1 m-4">coming soon ...</div>
-        <div class="flex-1 m-4">...</div>  
+        <div class="flex-1 m-4"><a href="/">Homepage</a></div>
+        <div class="flex-1 m-4">Libraries : Three.js, Alpine.js, Tailwindcss</div>
       </div>
     </div>
     <div class="mt-4 flex flex-col bg-gray-300 opacity-20 rounded-lg">
