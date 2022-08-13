@@ -10,12 +10,12 @@ async function init() {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   const scene = new THREE.Scene();
   const width = window.innerWidth;
-  const height = window.innerHeight / 2;
+  const height = window.innerHeight/2;
   renderer.setPixelRatio(1);
   renderer.setSize(width, height);
   renderer.shadowMap.enabled = true;
   const camera = new THREE.PerspectiveCamera(10, width / height, 1, 100);
-  camera.position.set(0, 0, 100);
+  camera.position.set(0, 40, 100);
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.maxDistance = 40;
   const light = new THREE.AmbientLight(0xFFFFFF, 1.0);
@@ -32,7 +32,7 @@ async function init() {
   model.position.set(0, 0, 0);
   scene.add(model);
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(width / 1.2, height);
+  renderer.setSize(width/1.2, height/1.3);
   renderer.setAnimationLoop(tick);
   setLight();
   function tick() {

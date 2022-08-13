@@ -17,5 +17,5 @@
 		<script src="js/three.js" ></script>
 		<?php require_once('./src/content.php') ?>
 		<?php require_once('./src/footer.php') ?>
-	</body>
+		</body>
 </html>
