@@ -16,11 +16,11 @@
     </div>
   </div>
 </div>
-
+<!--  -->
 <div x-show="archives" class="container mx-auto">
   <div class="flex flex-col text-center w-full text-gray">
     <div class="text-left border-b-2 border-gray-500">
-      <div class="text-white font-bold">Archives</div>
+      <div class="text-white font-bold text-xl">Archives</div>
     </div>
     <div class="mt-4 flex flex-col bg-gray-300 opacity-20 rounded-lg">
       <div class="flex flex-col text-left">
