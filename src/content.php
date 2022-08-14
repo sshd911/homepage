@@ -6,7 +6,7 @@
     </div>
     <div class="pt-4">
         <div class="inline-block border-b-2 border-gray-500 font-bold">Work</div>
-        <div>Usually, I walk around on GitHub to use a lot of libraries for development.</div>
+        <div class="pt-2">Usually, I walk around on GitHub to use a lot of libraries for development.</div>
     </div>
     <div class="pt-4">
       <div class="inline-block border-b-2 border-gray-500 font-bold">Bio</div>
@@ -26,7 +26,7 @@
     <div class="mt-4 flex flex-col bg-gray-300 opacity-20 rounded-lg">
       <div class="flex flex-col text-left">
         <div class="flex-1 m-2"><a href="/">Homepage</a></div>
-        <div class="flex-1 ml-2 mb-2">Libraries : Three.js, Alpine.js, Tailwindcss</div>
+        <div class="flex-1 ml-2 mb-2">Libraries : Three.js, Alpine.js, TailwindCSS</div>
       </div>
     </div>
     <div class="mt-4 flex flex-col bg-gray-300 opacity-20 rounded-lg">
