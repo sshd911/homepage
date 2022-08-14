@@ -21,6 +21,7 @@
   <div class="flex flex-col text-center w-full text-gray">
     <div class="text-left border-b-2 border-gray-500">
       <div class="text-white font-bold text-xl">Archives</div>
+      <div class="text-xs text-white"><a class="inline-block" href="https://github.com/sshd911">If you want to get full archives, click here to access my GitHub.</a></div>
     </div>
     <div class="mt-4 flex flex-col bg-gray-300 opacity-20 rounded-lg">
       <div class="flex flex-col text-left">
