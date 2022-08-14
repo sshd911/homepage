@@ -1,7 +1,7 @@
 <header>
   <nav class="container flex flex-wrap justify-between items-center mx-auto">
     <div class="">
-      <div class="text-bold text-white sm:hidden">Maeda Sho</div>
+      <div class="text-bold text-white sm:hidden"><a href="https://github.com/sshd911">GitHub</a></div>
     </div>
     <div class="flex flex-wrap justify-between items-center">
       <div x-on:click="about=true;archives=false;credit=false;" class="p-4 pr-4 m-2 bg-gray-300 opacity-20 rounded-lg hover:opacity-30" :class="about && 'opacity-40'">
