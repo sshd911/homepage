@@ -603,10 +603,6 @@ video {
   width: 100%;
 }
 
-.w-1\/2 {
-  width: 50%;
-}
-
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -652,14 +648,6 @@ video {
 
 .p-4 {
   padding: 1rem;
-}
-
-.p-8 {
-  padding: 2rem;
-}
-
-.p-6 {
-  padding: 1.5rem;
 }
 
 .pt-4 {

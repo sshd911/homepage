@@ -1,9 +1,5 @@
-const parentCanvas = document.getElementById('parentCanvas');
-const childCanvas = document.getElementById('childCanvas');
 const canvas = document.createElement('canvas');
-childCanvas.appendChild(canvas).className = 'mx-auto';
-parentCanvas.appendChild(childCanvas);
-document.body.appendChild(canvas);
+document.body.appendChild(canvas).className = 'mx-auto';
 // ---------------------------------------------------------------- append canvas
 const url = './img/scene.gltf';
 const loader = new THREE.GLTFLoader();
@@ -23,7 +19,6 @@ window.onresize = changeFlag;
 window.onload = init;
 const width = window.innerWidth/3;
 const height = window.innerHeight/3;
-
 // ---------------------------------------------------------------- task 2
 
 function resizeSettings() {
