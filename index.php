@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,8 +14,12 @@
 		<link href="/dist/output.css" rel="stylesheet">
 	</head>
 	<body class="bg-zinc-900 container mx-auto items-center md:w-1/2 h-1/2 pt-4 pl-8 pr-8 pb-8" x-data="{ about: true, archives: false, credit: false}">
+		<!--  -->
 		<?php require_once('./src/header.php') ?>
+		<!--  -->
 		<script src="js/three.js"></script>
+		<!--  -->
 		<?php require_once('./src/content.php') ?>
+		<!--  -->
 		</body>
 </html>
