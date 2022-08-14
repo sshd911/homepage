@@ -1,9 +1,9 @@
 const parentCanvas = document.getElementById('parentCanvas');
 const childCanvas = document.getElementById('childCanvas');
 const canvas = document.createElement('canvas');
-childCanvas.appendChild(canvas);
+childCanvas.appendChild(canvas).className = 'mx-auto';
 parentCanvas.appendChild(childCanvas);
-document.body.appendChild(parentCanvas);
+document.body.appendChild(canvas);
 // ---------------------------------------------------------------- append canvas
 const url = './img/scene.gltf';
 const loader = new THREE.GLTFLoader();
@@ -17,26 +17,25 @@ let model;
 var resize_flag = true;
 renderer.shadowMap.enabled = true;
 renderer.setPixelRatio(1);
+renderer.setPixelRatio(window.devicePixelRatio);
+scene.add(light);
 window.onresize = changeFlag;
 window.onload = init;
+const width = window.innerWidth/3;
+const height = window.innerHeight/3;
+
 // ---------------------------------------------------------------- task 2
 
 function resizeSettings() {
-  camera = new THREE.PerspectiveCamera(10, window.innerWidth / (window.innerHeight / 2), 1, 100);
+  camera = new THREE.PerspectiveCamera(10, width / height, 1, 100);
   controls = new THREE.OrbitControls(camera, renderer.domElement);
   camera.position.set(0, 40, 100);
   controls.maxDistance = 40;
 }
 
-function changeSize() {
-  renderer.setSize(window.innerWidth, window.innerHeight / 2);
-  scene.add(light);
-}
-
 function resizeWindow() {
-  resize_flag = false; // changed when they called which are init() and resizedWindo()
   resizeSettings();
-  changeSize();
+  // changeSize();/,
   makeModel();
 }
 
@@ -44,8 +43,8 @@ function makeModel() {
   model.scale.set(0.2, 0.2, 0.2);
   model.position.set(0, 0, 0);
   scene.add(model);
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(window.innerWidth / 1.2, (window.innerHeight / 2) / 1.3);
+  renderer.setSize(width, height);
+  renderer.setAnimationLoop(tick);
 };
 
 function changeFlag() {
@@ -55,14 +54,16 @@ function changeFlag() {
 async function init() {
   model = await (() => new Promise(resolve => loader.load(url, gltf => resolve(gltf.scene))))();
   resizeWindow();
-  changeSize();
-  makeModel();
-  renderer.setAnimationLoop(tick);
   // setLight();
 }
 
 function tick() {
-  if (resize_flag == true) { resizeWindow(); }
+  // if (resize_flag == true) {
+  //   setTimeout(() => {
+  //     resizeWindow();
+  //     resize_flag = false;
+  //   }, 2000);
+  // }
   controls.update();
   if (model.rotation.y <= 10) model.rotation.y += 0.4;
   if (model.rotation.y <= 30) model.rotation.y += 0.3;

@@ -11,11 +11,10 @@
     <script src="https://unpkg.com/three@0.139.2/examples/js/controls/OrbitControls.js"></script>
     <script src="https://unpkg.com/three@0.139.2/examples/js/loaders/GLTFLoader.js"></script>
 	</head>
-	<body class="bg-zinc-900" x-data="{ about: true, archives: false, credit: false}">
+	<body class="bg-zinc-900 container mx-auto items-center md:w-1/2 h-1/2" x-data="{ about: true, archives: false, credit: false}">
 		<?php require_once('./src/header.php') ?>
 		<script src="js/main.js" ></script>
 		<script src="js/three.js" ></script>
 		<?php require_once('./src/content.php') ?>
-		<?php require_once('./src/footer.php') ?>
 		</body>
 </html>
