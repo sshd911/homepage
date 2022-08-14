@@ -35,7 +35,6 @@ function resizeSettings() {
 
 function resizeWindow() {
   resizeSettings();
-  // changeSize();/,
   makeModel();
 }
 
@@ -54,16 +53,10 @@ function changeFlag() {
 async function init() {
   model = await (() => new Promise(resolve => loader.load(url, gltf => resolve(gltf.scene))))();
   resizeWindow();
-  // setLight();
+  setLight();
 }
 
 function tick() {
-  // if (resize_flag == true) {
-  //   setTimeout(() => {
-  //     resizeWindow();
-  //     resize_flag = false;
-  //   }, 2000);
-  // }
   controls.update();
   if (model.rotation.y <= 10) model.rotation.y += 0.4;
   if (model.rotation.y <= 30) model.rotation.y += 0.3;
@@ -75,19 +68,19 @@ function tick() {
   renderer.render(scene, camera);
 }
 
-// function setLight() {
-  // const positionArr = [
-  //   [1, 5, 3.5, 6],
-  //   [0, 1, 2, 4],
-  //   [0, 2, 0, 2],
-  // ];
-  // for (let i = 0; i < positionArr.length; i++) {
-  //   const directionalLight = new THREE.DirectionalLight(0xffffff, positionArr[i][3]);
-  //   directionalLight.position.set(positionArr[i][0], positionArr[i][1], positionArr[i][2]);
-  //   if (i == 0 || i == 2 || i == 3) {
-  //     directionalLight.castShadow = true;
-  //     directionalLight.shadow.mapSize.set(4096, 4096);
-  //   }
-  //   scene.add(directionalLight);
-  // }
-// }
+function setLight() {
+  const positionArr = [
+    [1, 5, 3.5, 6],
+    [0, 1, 2, 4],
+    [0, 2, 0, 2],
+  ];
+  for (let i = 0; i < positionArr.length; i++) {
+    const directionalLight = new THREE.DirectionalLight(0xffffff, positionArr[i][3]);
+    directionalLight.position.set(positionArr[i][0], positionArr[i][1], positionArr[i][2]);
+    if (i == 0 || i == 2 || i == 3) {
+      directionalLight.castShadow = true;
+      directionalLight.shadow.mapSize.set(4096, 4096);
+    }
+    scene.add(directionalLight);
+  }
+}

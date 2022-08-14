@@ -9,7 +9,7 @@
         <div>Usually, I walk around on GitHub to use a lot of libraries for development.</div>
     </div>
     <div class="pt-4">
-      <div class="inline-block border-b-2 border-gray-500 text-blod">Bio</div>
+      <div class="inline-block border-b-2 border-gray-500 text-bold">Bio</div>
       <div><div class="inline-block font-bold pr-2 pt-2">2002</div>Born in Saitama, Japan.</div>
       <div><div class="inline-block font-bold pr-2">2021</div>Get into Chuo University.</div>
       <div><div class="inline-block font-bold pr-2"><?= date("Y");?></div>Now ...</div>
@@ -24,20 +24,20 @@
     </div>
     <div class="mt-4 flex flex-col bg-gray-300 opacity-20 rounded-lg">
       <div class="flex flex-col text-left">
-        <div class="flex-1 m-4"><a href="/">Homepage</a></div>
-        <div class="flex-1 m-4">Libraries : Three.js, Alpine.js, Tailwindcss</div>
+        <div class="flex-1 m-2"><a href="/">Homepage</a></div>
+        <div class="flex-1 ml-2 mb-2">Libraries : Three.js, Alpine.js, Tailwindcss</div>
       </div>
     </div>
     <div class="mt-4 flex flex-col bg-gray-300 opacity-20 rounded-lg">
       <div class="flex flex-col text-left">
-        <div class="flex-1 m-4">coming soon ...</div>
-        <div class="flex-1 m-4">...</div>  
+        <div class="flex-1 m-2">coming soon ...</div>
+        <div class="flex-1 ml-2 mb-2">...</div>  
       </div>
     </div>
     <div class="mt-4 flex flex-col bg-gray-300 opacity-20 rounded-lg">
       <div class="flex flex-col text-left">
-        <div class="flex-1 m-4">coming soon ...</div>
-        <div class="flex-1 m-4">...</div>  
+        <div class="flex-1 m-2">coming soon ...</div>
+        <div class="flex-1 ml-2 mb-2">...</div>  
       </div>
     </div>
   </div>
