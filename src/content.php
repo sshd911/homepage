@@ -9,7 +9,7 @@
         <div>Usually, I walk around on GitHub to use a lot of libraries for development.</div>
     </div>
     <div class="pt-4">
-      <div class="inline-block border-b-2 border-gray-500 text-bold">Bio</div>
+      <div class="inline-block border-b-2 border-gray-500 font-bold">Bio</div>
       <div><div class="inline-block font-bold pr-2 pt-2">2002</div>Born in Saitama, Japan.</div>
       <div><div class="inline-block font-bold pr-2">2021</div>Get into Chuo University.</div>
       <div><div class="inline-block font-bold pr-2"><?= date("Y");?></div>Now ...</div>
