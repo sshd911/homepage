@@ -17,7 +17,7 @@
 		<!--  -->
 		<?php require_once('./src/header.html') ?>
 		<!--  -->
-		<script src="js/three.js"></script>
+		<script src="./src/js/three.js"></script>
 		<!--  -->
 		<?php require_once('./src/content.html') ?>
 		<!--  -->
