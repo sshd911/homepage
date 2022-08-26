@@ -17,8 +17,15 @@ renderer.setPixelRatio(window.devicePixelRatio);
 scene.add(light);
 window.onresize = changeFlag;
 window.onload = init;
-const width = window.innerWidth/3;
-const height = window.innerHeight/3;
+let width;
+let height;
+if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+  width = window.innerWidth/7;
+  height = window.innerHeight/7;
+} else {
+  width = window.innerWidth/3;
+  height = window.innerHeight/3;
+}
 // ---------------------------------------------------------------- task 2
 
 function resizeSettings() {
