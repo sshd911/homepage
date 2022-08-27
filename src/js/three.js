@@ -20,8 +20,8 @@ window.onload = init;
 let width;
 let height;
 if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-  width = window.innerWidth/7;
-  height = window.innerHeight/7;
+  width = window.innerWidth/5;
+  height = window.innerHeight/5;
 } else {
   width = window.innerWidth/3;
   height = window.innerHeight/3;
