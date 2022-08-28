@@ -17,5 +17,5 @@
 		<?php require_once('./src/components/header.html') ?>
 		<script type="text/javascript" src="./src/js/three.js"></script>
 		<?php require_once('./src/components/content.html') ?>
-		</body>
+	</body>
 </html>
