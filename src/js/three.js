@@ -1,3 +1,4 @@
+document.body.classList = navigator.userAgent.match(/iPhone|Android.+Mobile/) ? 'bg-zinc-900 mx-auto h-1/2 pt-4 pl-8 pr-8 pb-8' : 'bg-zinc-900 mx-auto w-4/6 h-1/2 pt-4 pl-8 pr-8 pb-8';
 const canvas = document.createElement('canvas');
 document.body.appendChild(canvas).className = 'mx-auto';
 // ---------------------------------------------------------------- append canvas

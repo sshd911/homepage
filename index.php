@@ -13,13 +13,9 @@
     <script src="https://unpkg.com/three@0.139.2/examples/js/loaders/GLTFLoader.js"></script>
 		<link href="/dist/output.css" rel="stylesheet">
 	</head>
-	<body class="bg-zinc-900 container mx-auto items-center md:w-1/2 h-1/2 pt-4 pl-8 pr-8 pb-8" x-data="{ about: true, archives: false }">
-		<!--  -->
+	<body x-data="{ about: true, archives: false }">
 		<?php require_once('./src/components/header.html') ?>
-		<!--  -->
 		<script src="./src/js/three.js"></script>
-		<!--  -->
 		<?php require_once('./src/components/content.html') ?>
-		<!--  -->
 		</body>
 </html>
