@@ -61,13 +61,13 @@ async function init() {
 
 function tick() {
   controls.update();
-  if (model.rotation.y <= 10) model.rotation.y += 0.4;
-  if (model.rotation.y <= 30) model.rotation.y += 0.3;
-  if (model.rotation.y <= 50) model.rotation.y += 0.2;
-  if (model.rotation.y <= 65) model.rotation.y += 0.1;
-  if (model.rotation.y <= 70) model.rotation.y += 0.05;
-  if (model.rotation.y <= 75) model.rotation.y += 0.05;
-  if (model.rotation.y) model.rotation.y += 0.02;
+  if (model.rotation.y <= 10) model.rotation.y += 0.3;
+  if (model.rotation.y <= 20) model.rotation.y += 0.2;
+  if (model.rotation.y <= 25) model.rotation.y += 0.15;
+  if (model.rotation.y <= 35) model.rotation.y += 0.1;
+  if (model.rotation.y <= 45) model.rotation.y += 0.07;
+  if (model.rotation.y <= 50) model.rotation.y += 0.05;
+  model.rotation.y += 0.03;
   renderer.render(scene, camera);
 }
 
