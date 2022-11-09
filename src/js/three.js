@@ -1,63 +1,38 @@
-document.body.classList = navigator.userAgent.match(/iPhone|Android.+Mobile/) ? 'bg-zinc-900 mx-auto h-1/2 pt-4 pl-8 pr-8 pb-8' : 'bg-zinc-900 mx-auto w-4/6 h-1/2 pt-4 pl-8 pr-8 pb-8';
-const canvas = document.createElement('canvas');
-document.body.appendChild(canvas).className = 'mx-auto';
-// ---------------------------------------------------------------- append canvas
-const url = './img/scene.gltf';
-const loader = new THREE.GLTFLoader();
-const scene = new THREE.Scene();
-const light = new THREE.AmbientLight(0xFFFFFF, 1.0);
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-// ---------------------------------------------------------------- task 1
-let camera;
-let controls;
+'use strict';
+
+const canvas = document.getElementById('c1');
+
+const DISPLAY = {
+  width: navigator.userAgent.match(/iPhone|Android.+Mobile/) ? window.innerWidth / 5 : window.innerWidth / 3,
+  height: navigator.userAgent.match(/iPhone|Android.+Mobile/) ? window.innerHeight / 5 : window.innerHeight / 3,
+  size: navigator.userAgent.match(/iPhone|Android.+Mobile/) ? (window.innerWidth / 5) / (window.innerHeight / 5) : (window.innerWidth / 3) / (window.innerHeight / 3),
+}
+const THREE_OBJECTS = {
+  loader: new THREE.GLTFLoader(),
+  scene: new THREE.Scene(),
+  light: new THREE.AmbientLight(0xFFFFFF, 1.0),
+  renderer: new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }),
+  camera: new THREE.PerspectiveCamera(10, DISPLAY.size, 1, 100),
+}
+
 let model;
-var resize_flag = true;
-renderer.shadowMap.enabled = true;
-renderer.setPixelRatio(1);
-renderer.setPixelRatio(window.devicePixelRatio);
-scene.add(light);
-window.onresize = changeFlag;
-window.onload = init;
-let width;
-let height;
-if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-  width = window.innerWidth/5;
-  height = window.innerHeight/5;
-} else {
-  width = window.innerWidth/3;
-  height = window.innerHeight/3;
-}
-// ---------------------------------------------------------------- task 2
+const controls = new THREE.OrbitControls(THREE_OBJECTS.camera, THREE_OBJECTS.renderer.domElement, 2000); 
+controls.maxDistance = 40;
+THREE_OBJECTS.camera.position.set(0, 40, 100)
 
-function resizeSettings() {
-  camera = new THREE.PerspectiveCamera(10, width / height, 1, 100);
-  controls = new THREE.OrbitControls(camera, renderer.domElement);
-  camera.position.set(0, 40, 100);
-  controls.maxDistance = 40;
-}
-
-function resizeWindow() {
-  resizeSettings();
+window.onload = async () => {
+  model = await (() => new Promise(resolve => THREE_OBJECTS.loader.load("./img/scene.gltf", gltf => resolve(gltf.scene))))();
   makeModel();
+  setLight();
 }
 
 function makeModel() {
   model.scale.set(0.2, 0.2, 0.2);
   model.position.set(0, 0, 0);
-  scene.add(model);
-  renderer.setSize(width, height);
-  renderer.setAnimationLoop(tick);
+  THREE_OBJECTS.scene.add(model);
+  THREE_OBJECTS.renderer.setSize(DISPLAY.width, DISPLAY.height);
+  THREE_OBJECTS.renderer.setAnimationLoop(tick);
 };
-
-function changeFlag() {
-  resize_flag = true;
-}
-
-async function init() {
-  model = await (() => new Promise(resolve => loader.load(url, gltf => resolve(gltf.scene))))();
-  resizeWindow();
-  setLight();
-}
 
 function tick() {
   controls.update();
@@ -68,22 +43,22 @@ function tick() {
   if (model.rotation.y <= 45) model.rotation.y += 0.07;
   if (model.rotation.y <= 50) model.rotation.y += 0.05;
   model.rotation.y += 0.03;
-  renderer.render(scene, camera);
+  THREE_OBJECTS.renderer.render(THREE_OBJECTS.scene, THREE_OBJECTS.camera);
 }
 
 function setLight() {
-  const positionArr = [
+  const POSITION = [
     [1, 5, 3.5, 6],
     [0, 1, 2, 4],
     [0, 2, 0, 2],
   ];
-  for (let i = 0; i < positionArr.length; i++) {
-    const directionalLight = new THREE.DirectionalLight(0xffffff, positionArr[i][3]);
-    directionalLight.position.set(positionArr[i][0], positionArr[i][1], positionArr[i][2]);
+  for (let i = 0; i < POSITION.length; i++) {
+    const directionalLight = new THREE.DirectionalLight(0xffffff, POSITION[i][3]);
+    directionalLight.position.set(POSITION[i][0], POSITION[i][1], POSITION[i][2]);
     if (i == 0 || i == 2 || i == 3) {
       directionalLight.castShadow = true;
       directionalLight.shadow.mapSize.set(4096, 4096);
     }
-    scene.add(directionalLight);
+    THREE_OBJECTS.scene.add(directionalLight);
   }
 }

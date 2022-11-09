@@ -13,8 +13,12 @@
     <script src="https://unpkg.com/three@0.139.2/examples/js/loaders/GLTFLoader.js"></script>
 		<link href="/dist/output.css" rel="stylesheet">
 	</head>
-	<body x-data="{ about: true, archives: false }">
+	<body x-data="{ about: true, archives: false, isMobile: navigator.userAgent.match(/iPhone|Android.+Mobile/) }"
+				:class="isMobile ? '' : 'w-4/6'"
+				class="bg-zinc-900 mx-auto h-1/2 p-8 -pt-4"
+	>
 		<?php require_once('./src/components/header.html') ?>
+		<canvas id="c1" class="mx-auto"></canvas>
 		<script type="text/javascript" src="./src/js/three.js"></script>
 		<?php require_once('./src/components/content.html') ?>
 	</body>
