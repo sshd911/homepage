@@ -11,15 +11,17 @@
     <script src="https://unpkg.com/three@0.139.2/build/three.min.js"></script>
     <script src="https://unpkg.com/three@0.139.2/examples/js/controls/OrbitControls.js"></script>
     <script src="https://unpkg.com/three@0.139.2/examples/js/loaders/GLTFLoader.js"></script>
-		<link href="/dist/output.css" rel="stylesheet">
 	</head>
 	<body x-data="{ about: true, archives: false, isMobile: navigator.userAgent.match(/iPhone|Android.+Mobile/) }"
 				:class="isMobile ? '' : 'w-4/6'"
-				class="bg-zinc-900 mx-auto h-1/2 p-8 -pt-4"
+				class="mx-auto h-1/2 p-8 -pt-4 bg-fixed bg-cover overflow-auto"
+				style="background-image: url('./img/bg.webp');height: 100vh; "
 	>
 		<?php require_once('./src/components/header.html') ?>
 		<canvas id="c1" class="mx-auto"></canvas>
 		<script type="text/javascript" src="./src/js/three.js"></script>
 		<?php require_once('./src/components/content.html') ?>
+		<link href="/dist/output.css" rel="stylesheet">
+		<link prerender="prerender" href="https://github.com/sshd911">
 	</body>
 </html>

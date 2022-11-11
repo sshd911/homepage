@@ -20,7 +20,26 @@ const controls = new THREE.OrbitControls(THREE_OBJECTS.camera, THREE_OBJECTS.ren
 controls.maxDistance = 40;
 THREE_OBJECTS.camera.position.set(0, 40, 100)
 
-window.onload = async () => {
+function cachingDecorator(func) {
+  const cache = new Map();
+  return x => {
+    if (!x) {
+      return func(x)
+    }
+    if (cache.has(x)) {
+      return cache.get(x);
+    }
+    const result = func(x);
+    cache.set(x, result);
+    return result;
+  }
+}
+
+const heavyFunc = cachingDecorator(loop);
+
+window.onload = heavyFunc();
+
+async function loop(){
   model = await (() => new Promise(resolve => THREE_OBJECTS.loader.load("./img/scene.gltf", gltf => resolve(gltf.scene))))();
   makeModel();
   setLight();
