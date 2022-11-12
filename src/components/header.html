@@ -1,20 +1,10 @@
 <header class="mb-4">
-  <nav class="container mx-auto">
-    <div class="flex flex-row-reverse">
-      <div class="mx-1" @click="about=true; archives=false;">
-        <div id="about">About</div>
-        <style> 
-          #about {display: inline-block;padding: 0.5em 2em;text-decoration: none;background-color: #6f6f6f;border: solid 2px #a7a7a7;border-right: solid 2px #5a5b5b;border-bottom: solid 2px #5a5b5b;box-shadow: 0px 0px 0px 2px #0a0a0a;color: #fff;}
-          #about:hover {background-color: #7e88bf;border: solid 2px #c1cbff;border-right: solid 2px #5c659d;border-bottom: solid 2px #5c659d;}
-        </style>
-      </div>
-      <div class="mx-1" @click="archives=true; about=false;">
-        <div id="archive">Archives</div>
-        <style> 
-          #archive {display: inline-block;padding: 0.5em 1.5em;text-decoration: none;background-color: #6f6f6f;border: solid 2px #a7a7a7;border-right: solid 2px #5a5b5b;border-bottom: solid 2px #5a5b5b;box-shadow: 0px 0px 0px 2px #0a0a0a;color: #fff;}
-          #archive:hover {background-color: #7e88bf;border: solid 2px #c1cbff;border-right: solid 2px #5c659d;border-bottom: solid 2px #5c659d;}
-        </style>
-      </div>
-    </div>
-  </nav>
+  <section class="flex flex-row-reverse">
+      <button class="mx-1 button" @click="about=true; archives=false;">
+        About
+      </button>
+      <button class="mx-1 button" @click="archives=true; about=false;">
+        Archives
+      </button>
+  </section>
 </header>

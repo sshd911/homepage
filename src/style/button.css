@@ -1,0 +1,18 @@
+.button {
+  display: inline-block;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  background-color: #6f6f6f;
+  border: solid 2px #a7a7a7;
+  border-right: solid 2px #5a5b5b;
+  border-bottom: solid 2px #5a5b5b;
+  box-shadow: 0px 0px 0px 2px #0a0a0a;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: #7e88bf;
+  border: solid 2px #c1cbff;
+  border-right: solid 2px #5c659d;
+  border-bottom: solid 2px #5c659d;
+}

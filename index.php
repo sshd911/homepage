@@ -7,7 +7,6 @@
 		<meta name="format-detection" content="telephone=no">
 		<link rel="icon" href="./img/sshd.png">
 		<title>homepage</title>
-		<script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
     <script src="https://unpkg.com/three@0.139.2/build/three.min.js"></script>
     <script src="https://unpkg.com/three@0.139.2/examples/js/controls/OrbitControls.js"></script>
     <script src="https://unpkg.com/three@0.139.2/examples/js/loaders/GLTFLoader.js"></script>
@@ -21,7 +20,12 @@
 		<canvas id="c1" class="mx-auto"></canvas>
 		<script type="text/javascript" src="./src/js/three.js"></script>
 		<?php require_once('./src/components/content.html') ?>
+
 		<link href="/dist/output.css" rel="stylesheet">
-		<link prerender="prerender" href="https://github.com/sshd911">
+		<link rel="stylesheet" type="text/css" href="./src/style/button.css">
+		<link rel="stylesheet" type="text/css" href="./src/style/type.css">
+		<script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+		<script defer src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script defer src="./src/js/type.js"></script>
 	</body>
 </html>
