@@ -1,6 +1,6 @@
 'use strict';
 
-const canvas = document.getElementById('c1');
+const canvas = document.getElementById('canvas');
 
 const DISPLAY = {
   width: navigator.userAgent.match(/iPhone|Android.+Mobile/) ? window.innerWidth / 5 : window.innerWidth / 3,
