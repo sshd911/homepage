@@ -5,24 +5,28 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="format-detection" content="telephone=no">
-		<link rel="icon" href="./img/sshd.png">
+		<meta name="description" content="Maeda's HOMEPAGE">
+		<link rel="icon" alt="" href="./img/sshd.png">
 		<title>homepage</title>
-    <script src="https://unpkg.com/three@0.139.2/build/three.min.js"></script>
-    <script src="https://unpkg.com/three@0.139.2/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://unpkg.com/three@0.139.2/examples/js/loaders/GLTFLoader.js"></script>
 	</head>
-	<body x-data="{ about: true, archives: false}" class="mx-auto p-8 -pt-4 bg-fixed bg-[url('./../img/background/minecraft.webp')] bg-cover bg-no-repeat overflow-auto md:w-4/6 h-[100vh]">
-		<header id="header"></header>
-		<canvas id="canvas" class="mx-auto"></canvas>
-		<script type="text/javascript" src="./src/js/three.js"></script>
-		<footer id="about"></footer>
-		<footer id="archives"></footer>
+	<body x-data="{ isSec1: true, isSec2: false}" class="mx-auto p-8 -pt-4 bg-fixed bg-[url('./../img/background/minecraft.webp')] bg-cover bg-no-repeat overflow-auto md:w-4/6 h-[100vh]">
+		<header></header>
+		<main class="bg-white bg-opacity-5 rounded m-4">
+			<canvas id="canvas" class="mx-auto"></canvas>
+		</main>
+		<footer class="bg-white bg-opacity-5 rounded m-4">
+			<section id="about" x-show="isSec1"></section>
+			<section id="archives" x-show="isSec2"></section>
+		</footer>
 		<link rel="stylesheet" type="text/css" href="./dist/output.css">
-		<link rel="stylesheet" type="text/css" href="./src/style/button.css">
 		<link rel="stylesheet" type="text/css" href="./src/style/type.css">
-		<script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="./src/js/load.js"></script>
+		<script defer type="text/javascript" src="https://unpkg.com/three@0.139.2/build/three.min.js"></script>
+		<script defer type="text/javascript" src="https://unpkg.com/three@0.139.2/examples/js/controls/OrbitControls.js"></script>
+		<script defer type="text/javascript" src="https://unpkg.com/three@0.139.2/examples/js/loaders/GLTFLoader.js"></script>
+		<script defer type="text/javascript" src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+		<script defer type="text/javascript" src="./src/js/three.js"></script>
+		<script defer type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+		<script defer type="text/javascript" src="./src/js/load.js"></script>
 		<script defer type="text/javascript" src="./src/js/type.js"></script>
 	</body>
 </html>

@@ -1,8 +1,16 @@
-<section class="container flex flex-row-reverse mb-4">
-    <button class="mx-1 button" @click="archives=true; about=false;">
-      Archives
+<div class="container flex justify-end font-mono p-4">
+    <button @click="isSec2=true; isSec1=false;"
+            style="box-shadow: 0px 0px 0px 2px #0a0a0a;" 
+            class="mx-1 inline-block px-[2em] py-[0.5em] bg-[#6f6f6f] text-[#fff] border-solid border-[#a7a7a7] border-[2px] border-r-[#5a5b5b] border-b-[#5a5b5b]"
+            :class="isSec2 ? 'bg-[#7e88bf] border-solid border-[2px] border-[#c1cbff] border-r-[#5c659d] border-b-[#5c659d]' : ''"
+    >
+    Archives
     </button>
-    <button class="mx-1 button" @click="about=true; archives=false;">
-      About
+    <button @click="isSec1=true; isSec2=false;" 
+            style="box-shadow: 0px 0px 0px 2px #0a0a0a;" 
+            class="mx-1 inline-block px-[2em] py-[0.5em] bg-[#6f6f6f] text-[#fff] border-solid border-[#a7a7a7] border-[2px] border-r-[#5a5b5b] border-b-[#5a5b5b]"
+            :class="isSec1 ? 'bg-[#7e88bf] border-solid border-[2px] border-[#c1cbff] border-r-[#5c659d] border-b-[#5c659d]' : ''"
+    >
+    About
     </button>
-</section>
+</div>

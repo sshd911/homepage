@@ -3,10 +3,11 @@
 const canvas = document.getElementById('canvas');
 
 const DISPLAY = {
-  width: navigator.userAgent.match(/iPhone|Android.+Mobile/) ? window.innerWidth / 5 : window.innerWidth / 3,
-  height: navigator.userAgent.match(/iPhone|Android.+Mobile/) ? window.innerHeight / 5 : window.innerHeight / 3,
+  width: navigator.userAgent.match(/iPhone|Android.+Mobile/) ? window.innerWidth / 5 : window.innerWidth / 4,
+  height: navigator.userAgent.match(/iPhone|Android.+Mobile/) ? window.innerHeight / 5 : window.innerHeight / 4,
   size: navigator.userAgent.match(/iPhone|Android.+Mobile/) ? (window.innerWidth / 5) / (window.innerHeight / 5) : (window.innerWidth / 3) / (window.innerHeight / 3),
 }
+
 const THREE_OBJECTS = {
   loader: new THREE.GLTFLoader(),
   scene: new THREE.Scene(),
