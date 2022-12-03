@@ -8,5 +8,4 @@
 $ git clone git@github.com:sshd911/homepage.git
 $ cd homepage
 $ npm install && npm run dev
-$ npm start
 ```

@@ -1,5 +1,3 @@
-'use strict';
-
 function TextTypingAnime(className){
 	$(className).each(function () {
 		var elemPos = $(this).offset().top - 50;

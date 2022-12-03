@@ -1,13 +1,17 @@
 {
-  "devDependencies": {
-    "tailwindcss": "^3.1.8"
-  },
+  "name": "homepage",
+  "private": true,
+  "version": "0.0.0",
+  "type": "commonjs",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/style/input.css -o ./dist/output.css --watch",
-    "build": "npx tailwindcss -o ./dist/output.css --minify",
-    "start": "http-server -o"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "dependencies": {
-    "http-server": "^14.1.1"
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4",
+    "vite": "^3.2.3"
   }
 }

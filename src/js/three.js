@@ -1,5 +1,3 @@
-'use strict';
-
 const canvas = document.getElementById('canvas');
 
 const DISPLAY = {
@@ -41,7 +39,7 @@ const heavyFunc = cachingDecorator(loop);
 window.onload = heavyFunc();
 
 async function loop(){
-  model = await (() => new Promise(resolve => THREE_OBJECTS.loader.load("./img/scene.gltf", gltf => resolve(gltf.scene))))();
+  model = await (() => new Promise(resolve => THREE_OBJECTS.loader.load("./../../img/scene.gltf", gltf => resolve(gltf.scene))))();
   makeModel();
   setLight();
 }
