@@ -1,4 +1,2 @@
 .DS_Store
-./node_modules/*
-./dist/output.css
-./dist/*
+node_modules/

@@ -4,6 +4,10 @@
   },
   "scripts": {
     "dev": "npx tailwindcss -i ./src/style/input.css -o ./dist/output.css --watch",
-    "build": "npx tailwindcss -o ./dist/output.css --minify"
-  } 
+    "build": "npx tailwindcss -o ./dist/output.css --minify",
+    "start": "http-server -o"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
 }
