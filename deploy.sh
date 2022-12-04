@@ -14,6 +14,6 @@ else
 fi
 git add -A
 git commit -m 'deploy'
-git push -f git@github.com:sshd911/homepage.git product:gh-pages
+git push -f git@github.com:sshd911/homepage.git product
 git checkout master
 cd -
