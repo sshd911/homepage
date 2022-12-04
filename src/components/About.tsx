@@ -3,10 +3,10 @@ import personSVG from './../../public/assets/svg/person.svg';
 import activitySVG from './../../public/assets/svg/activily.svg';
 import morterboardSVG from './../../public/assets/svg/morterboard.svg';
 
-const About: FC<{ show: Number }> = ({ show }) => {
+const About: FC<{ isActive: Boolean }> = ({ isActive }) => {
   return (
     <>
-      <div className={show === 0 ? "hidden" : "bg-white bg-opacity-5 rounded-lg mx-4 my-8"}>
+      <div className={ isActive ? "bg-white bg-opacity-5 rounded-lg mx-4 my-8" : "hidden" }>
         <div className="flex flex-col text-white p-4">
           <div className="flex flex-col">
             <div className="text-xl">

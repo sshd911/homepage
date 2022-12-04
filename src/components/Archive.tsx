@@ -1,19 +1,18 @@
-import React, { FC } from 'react';
+import React, { FC , useState } from 'react';
 
-const Archive: FC<{ show: Number }> = ({ show }) => {
+const Archive: FC<{ isActive: Boolean; changeIsActive: (n: Boolean) => void }> = ({
+  isActive,
+  changeIsActive,
+}) => {
   return (
     <>
-      <div
-        className={
-          show === 1 ? 'hidden' : 'bg-white bg-opacity-5 rounded-lg mx-4 my-8'
-        }
-      >
+      <div className={ isActive ? 'hidden' : 'bg-white bg-opacity-5 rounded-lg mx-4 my-8' }>
         <div className="mx-4 my-8 container flex justify-end">
-          {/* <!-- TODO --> */}
+          {/* TODO */}
         </div>
       </div>
     </>
   );
 };
 
-export default Archive;
+export default Archive

@@ -6,15 +6,15 @@ import Main from './components/Three';
 import './style/index.css'
 
 const App = () => {
-  const [show, setShow] = useState<Number>(1);
-  const changeState = (n: Number): void => setShow(n);
+  const [isActive, setIsActive] = useState<Boolean>(true);
+  const changeIsActive = (v: Boolean): void => setIsActive(v);
 
   return (
     <>
-      <Header show={show} changeState={changeState} />
+      <Header isActive={isActive} changeIsActive={changeIsActive} />
       <Main />
-      <About show={show} />
-      <Archive show={show} />
+      <About isActive={isActive} />
+      <Archive isActive={isActive} changeIsActive={changeIsActive} />
     </>
   );
 };
