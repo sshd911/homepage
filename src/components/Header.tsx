@@ -10,7 +10,7 @@ const Header: FC<{ show: Number; changeState: (n: Number) => void }> = ({
 }) => {
   return (
     <>
-      <div className="mx-4">
+      <div className="md:mx-4">
         <div className="container flex justify-end">
           <div className="mx-4 my-8 container flex justify-end">
             <button
@@ -18,8 +18,8 @@ const Header: FC<{ show: Number; changeState: (n: Number) => void }> = ({
               style={shadow}
               className={
                 show === 0
-                  ? 'mx-1 inline-block px-[2em] py-[0.5em] text-[#fff] border-solid border-[2px] bg-[#7e88bf] border-[#c1cbff] border-r-[#5c659d] border-b-[#5c659d]'
-                  : 'mx-1 inline-block px-[2em] py-[0.5em] bg-[#6f6f6f] text-[#fff] border-solid border-[#a7a7a7] border-[2px] border-r-[#5a5b5b] border-b-[#5a5b5b]'
+                  ? 'mx-1 inline-block px-[1.2em] py-[0.5em] text-[#fff] border-solid border-[2px] bg-[#7e88bf] border-[#c1cbff] border-r-[#5c659d] border-b-[#5c659d]'
+                  : 'mx-1 inline-block px-[1.2em] py-[0.5em] bg-[#6f6f6f] text-[#fff] border-solid border-[#a7a7a7] border-[2px] border-r-[#5a5b5b] border-b-[#5a5b5b]'
               }
             >
               Archives
