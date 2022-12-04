@@ -30,7 +30,7 @@ const About: FC<{ show: Number }> = ({ show }) => {
               />
               Work
             </div>
-            <div>Hi, there! Thanks for comeing!</div>
+            <div>Hi, there! Thanks for coming here!</div>
             <div>
               I'm a japanese student at Chuo University majoring in literature,
               and develop web.
