@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import personSVG from './../../public/assets/svg/person.svg';
-import activitySVG from './../../public/assets/svg/activily.svg';
-import morterboardSVG from './../../public/assets/svg/morterboard.svg';
+import personSVG from './../../public/svg/person.svg';
+import activitySVG from './../../public/svg/activily.svg';
+import morterboardSVG from './../../public/svg/morterboard.svg';
 
 const About: FC<{ isActive: Boolean }> = ({ isActive }) => {
   return (

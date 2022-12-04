@@ -5,7 +5,7 @@ export default defineConfig({
   base: '/homepage/',
   root: './src',
   publicDir: '../public',
-  assetsInclude: ['**/*.gltf'],
+  assetsInclude: ['**/assets/scene.gltf'],
   build: {
     outDir: '../dist',
     emptyOutDir: true,
