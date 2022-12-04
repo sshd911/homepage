@@ -3,6 +3,7 @@
 set -e
 npm run build
 cd dist
+echo > .nojekyll
 git init
 git checkout -B prod
 git add -A
