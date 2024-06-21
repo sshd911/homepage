@@ -45,7 +45,7 @@ export default function Projects() {
   return (
     <SimpleLayout
       title="プロジェクト一覧"
-      intro="公開中のプロジェクトを掲載しております。"
+      intro="Projects that are open to the public are listed."
     >
       <ul
         role="list"

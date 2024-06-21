@@ -60,14 +60,11 @@ export default function About() {
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
           前田 翔 / Sho Maeda
           </h1>
-          <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-            <p>
-            普段は主にWeb開発を行っています。技術関連全般が好きな大学生です。
-            このWebサイトでは、趣味で作ったものやブログなどを掲載いしていく予定です。
-            </p>
-            <p>
-             お気兼ねなく、ご覧ください！
-            </p>
+          <div className="mt-6 space-y-1 text-base text-zinc-600 dark:text-zinc-400">
+            <div>I usually work mainly in web development.</div>
+            <div>I'm a college student who likes all things related to technology.</div>
+            <div>On this website, I plan to post my hobbies and blogs!</div>
+            <div>Please feel free to visit!</div>
           </div>
         </div>
         <div className="lg:pl-20">
@@ -79,7 +76,7 @@ export default function About() {
               icon={GitHubIcon} 
               className="mt-4"
             >
-              Follow on GitHub
+              GitHub
             </SocialLink>
             <SocialLink
               href="mailto:contact@sshd911.com"
