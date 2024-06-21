@@ -45,7 +45,7 @@ export default function Projects() {
   return (
     <SimpleLayout
       title="プロジェクト一覧"
-      intro="これまでに取り組んできたプロジェクトのうち、公開済みのものを随時掲載していきます。"
+      intro="公開中のプロジェクトを掲載しております。"
     >
       <ul
         role="list"
