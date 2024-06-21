@@ -53,6 +53,7 @@ export default async function ArticlesIndex() {
           ))}
         </div>
       </div>
+      
     </SimpleLayout>
   )
 }
