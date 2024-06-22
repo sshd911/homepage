@@ -6,7 +6,7 @@ import { Container } from '@/components/Container'
 import {
   GitHubIcon,
 } from '@/components/SocialIcons'
-import portraitImage from '@/images/portrait.jpg'
+import portraitImage from '@/images/portrait.webp'
 import { Button } from '@/components/Button'
 import CiLogo from '@/images/logos/CiLogo.webp'
 import UnivLogo from '@/images/logos/univ-logo.png'
