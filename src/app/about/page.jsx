@@ -7,9 +7,8 @@ import {
   GitHubIcon,
 } from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.webp'
-import { Button } from '@/components/Button'
 import CiLogo from '@/images/logos/CiLogo.webp'
-import UnivLogo from '@/images/logos/univ-logo.png'
+import UnivLogo from '@/images/logos/univ-logo.webp'
 
 function ArrowDownIcon(props) {
   return (
@@ -164,7 +163,8 @@ export default function About() {
           <div className="max-w-xs px-2.5 lg:max-w-none">
             <Image
               src={portraitImage}
-              alt=""
+              alt="portrait image"
+              priority
               sizes="(min-width: 1024px) 32rem, 20rem"
               className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
             />
@@ -180,7 +180,7 @@ export default function About() {
             <div>On this website, I plan to post my hobbies and blogs!</div>
             <div>Please feel free to visit!</div>
           </div>
-          <div class="pt-10">
+          <div className="pt-10">
             <Resume />
           </div>
         </div>
