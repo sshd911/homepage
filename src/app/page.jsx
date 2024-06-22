@@ -158,8 +158,8 @@ export const metadata = {
 export default function About() {
   return (
     <Container className="mt-16 sm:mt-32">
-      <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-        <div className="lg:pl-20">
+      <div className="grid grid-cols-1 gap-y-12 lg:gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr]">
+        <div className="invisible lg:pl-20 lg:visible">
           <div className="max-w-xs px-2.5 lg:max-w-none">
             <Image
               src={portraitImage}
@@ -170,7 +170,7 @@ export default function About() {
             />
           </div>
         </div>
-        <div className="lg:order-first lg:row-span-2">
+        <div className="order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
           前田 翔 / Sho Maeda
           </h1>
@@ -184,7 +184,7 @@ export default function About() {
             <Resume />
           </div>
         </div>
-        <div className="lg:pl-20">
+        <div className="lg:pl-20 order-first lg:order-none">
           <ul role="list">
             <SocialLink 
               href="https://github.com/sshd911" 
