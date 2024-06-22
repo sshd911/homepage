@@ -1,4 +1,3 @@
-// src/app/page.jsx
 'use client';
 
 import { useEffect } from 'react';
@@ -11,7 +10,7 @@ const Home = () => {
     router.push('/about');
   }, [router]);
 
-  return null; // リダイレクトするため、何も表示しない
+  return null;
 };
 
 export default Home;

@@ -151,7 +151,7 @@ function MailIcon(props) {
 export const metadata = {
   title: 'About',
   description:
-    '前田 翔 / Sho Maeda',
+    'Homepage about me',
 }
 
 

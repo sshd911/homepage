@@ -10,7 +10,7 @@ export const metadata = {
       'Sho Maeda, sshd911.com, website, homepage',
   },
   description:
-    'I’m Spencer, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms.',
+    "this is a homepage that created by Sho Maeda. In this website, I introduced you to my work. Feel free to visit!",
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
