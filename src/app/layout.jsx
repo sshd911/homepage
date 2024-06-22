@@ -5,7 +5,7 @@ import '@/styles/tailwind.css'
 
 export const metadata = {
   title: {
-    template: '%s - Sho Maeda',
+    template: '%s',
     default:
       'Sho Maeda, sshd911.com, website, homepage',
   },
