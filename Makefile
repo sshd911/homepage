@@ -11,7 +11,8 @@ LOG_CMD = pm2 logs ${APP_NAME}
 STATUS_CMD = pm2 status
 KILL_CMD = pm2 kill
 RESTART_CMD = pm2 restart 0
-
+INSTALL_MP2_CMD = npm install pm2 -g
+INSTALL_PNPM_CMD = curl -fsSL https://get.pnpm.io/install.sh && sh - export PNPM_HOME="/home/ec2-user/.local/share/pnpm" && source /home/ec2-user/.bashrc && install
 # Default target
 all: install
 
@@ -29,7 +30,7 @@ clean:
 
 # Start application
 start:
-	${START_CMD}
+	${START_CMD} || ${INSTALL_MP2_CMD}
 	
 # Stop application
 stop:
@@ -52,11 +53,4 @@ status:
 
 # Install dependencies
 install:
-	$(PACKAGE_MANAGER) $(INSTALL_CMD)
-
-# Install pnpm if it's not installed
-installPnpm:
-	curl -fsSL https://get.pnpm.io/install.sh sh - && \
-	export PNPM_HOME="/home/ec2-user/.local/share/pnpm" && \
-	source /home/ec2-user/.bashrc && \
-	install
+	$(PACKAGE_MANAGER) $(INSTALL_CMD) || ${INSTALL_PNPM_CMD} && $(PACKAGE_MANAGER) $(INSTALL_CMD) 
