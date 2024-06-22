@@ -58,5 +58,8 @@ install:
 	$(PACKAGE_MANAGER) $(INSTALL_CMD) || ${INSTALL_PNPM_CMD} && $(PACKAGE_MANAGER) $(INSTALL_CMD) 
 
 # update latest version
-pull:
-	${GIT_PULL_CMD}
+update:
+	${KILL_CMD} && \
+	${GIT_PULL_CMD} && \
+	$(PACKAGE_MANAGER) $(BUILD_CMD) && \
+	${START_CMD} && \
