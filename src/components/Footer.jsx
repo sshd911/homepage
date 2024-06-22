@@ -25,7 +25,7 @@ export function Footer() {
                 <NavLink href="/articles">Articles</NavLink>
                 <NavLink href="/projects">Projects</NavLink>
               </div>
-              <p className="text-sm text-zinc-400 dark:text-zinc-500">
+              <p className="text-sm text-zinc-400 dark:text-slate-300">
                 &copy; {new Date().getFullYear()} Sho Maeda. All rights
                 reserved.
               </p>
