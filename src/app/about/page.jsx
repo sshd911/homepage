@@ -8,7 +8,7 @@ import {
 } from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.webp'
 import CiLogo from '@/images/logos/CiLogo.webp'
-import UnivLogo from '@/images/logos/univ-logo.webp'
+import UnivLogo from '@/images/logos/univLogo.webp'
 
 function ArrowDownIcon(props) {
   return (
