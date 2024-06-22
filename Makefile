@@ -1,5 +1,5 @@
 # Define variables
-PACKAGE_MANAGER = npm
+PACKAGE_MANAGER = pnpm
 DEV_CMD = run dev
 BUILD_CMD = run build
 CACHE_CLEAR_CMD = store prune
