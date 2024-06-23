@@ -42,12 +42,12 @@ function Role({ role }) {
           {role.company}
         </dd>
         <dt className="sr-only">Role</dt>
-        <dd className="text-xs text-zinc-500 dark:text-slate-300">
+        <dd className="text-xs text-zinc-600 dark:text-slate-300">
           {role.title}
         </dd>
         <dt className="sr-only">Date</dt>
         <dd
-          className="ml-auto text-xs text-zinc-400 dark:text-slate-300"
+          className="ml-auto text-xs text-zinc-600 dark:text-slate-300"
           aria-label={`${startLabel} until ${endLabel}`}
         >
           <time dateTime={startDate}>{startLabel}</time>{' '}
@@ -109,7 +109,7 @@ function Resume() {
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 className="flex text-sm font-semibold text-zinc-950 dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Career</span>
       </h2>
