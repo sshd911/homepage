@@ -159,7 +159,7 @@ export default function About() {
       <div className="grid grid-cols-1 gap-y-12 lg:gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr]">
         <div className="order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-          前田 翔 / Sho Mae
+          前田 翔 / Sho Maeda
           </h1>
           <div className="mt-6 space-y-1 text-base text-zinc-600 dark:text-zinc-400">
             <div>I usually work mainly in web development.</div>
