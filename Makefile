@@ -61,5 +61,5 @@ install:
 update:
 	${KILL_CMD} && \
 	${GIT_PULL_CMD} && \
-	$(PACKAGE_MANAGER) $(BUILD_CMD) && \
+	${PACKAGE_MANAGER} ${BUILD_CMD} && \
 	${START_CMD}
