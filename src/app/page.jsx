@@ -6,7 +6,6 @@ import { Container } from '@/components/Container'
 import {
   GitHubIcon,
 } from '@/components/SocialIcons'
-import portraitImage from '@/images/portrait.webp'
 import CiLogo from '@/images/logos/CiLogo.webp'
 import UnivLogo from '@/images/logos/univLogo.webp'
 
@@ -159,17 +158,6 @@ export default function About() {
   return (
     <Container className="mt-16 sm:mt-32">
       <div className="grid grid-cols-1 gap-y-12 lg:gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr]">
-        <div className="invisible lg:pl-20 lg:visible">
-          <div className="max-w-xs px-2.5 lg:max-w-none">
-            <Image
-              src={portraitImage}
-              alt="portrait image"
-              priority
-              sizes="(min-width: 1024px) 32rem, 20rem"
-              className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-            />
-          </div>
-        </div>
         <div className="order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
           前田 翔 / Sho Maeda

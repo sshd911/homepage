@@ -1,4 +1,4 @@
-import { Footer } from '@/components/Footer'
+// import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { HeroPattern } from '@/components/HeroPattern'
 
@@ -15,7 +15,7 @@ export function Layout({ children }) {
       <div className="relative flex w-full flex-col">
         <Header />
         <main className="flex-auto">{children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   )
