@@ -149,8 +149,7 @@ function MailIcon(props) {
 
 export const metadata = {
   title: 'About',
-  description:
-    'Homepage about me',
+  description: 'Homepage',
 }
 
 
