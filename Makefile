@@ -1,3 +1,5 @@
+include .env
+
 # Define variables
 APP_NAME = sshd911-homepage
 PACKAGE_MANAGER = pnpm
@@ -5,7 +7,7 @@ DEV_CMD = run dev
 BUILD_CMD = run build
 CACHE_CLEAR_CMD = store prune
 INSTALL_CMD = install
-START_CMD = pm2 start npm --name "${APP_NAME}" -- run start
+START_CMD = PORT=${PORT} pm2 start npm --name "${APP_NAME}" -- run start
 STOP_CMD = pm2 stop ${APP_NAME} 
 LOG_CMD = pm2 logs ${APP_NAME} 
 STATUS_CMD = pm2 status
