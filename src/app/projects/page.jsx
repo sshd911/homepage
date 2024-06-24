@@ -40,7 +40,7 @@ export const metadata = {
 export default function Projects() {
   return (
     <SimpleLayout
-      title="プロジェクト一覧"
+      title="Projects Overview"
       intro="Projects that are open to the public are listed."
     >
       <ul

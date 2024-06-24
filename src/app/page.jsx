@@ -163,8 +163,7 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-1 text-base text-zinc-600 dark:text-zinc-400">
             <div>I usually work mainly in web development.</div>
-            <div>I{`'`}m a college student who likes all things related to technology.</div>
-            <div>On this website, I plan to post my hobbies and blogs!</div>
+            <div>On this website, I plan to post my projects and articles!</div>
             <div>Please feel free to visit!</div>
           </div>
           <div className="pt-10">

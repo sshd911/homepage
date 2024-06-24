@@ -19,7 +19,7 @@ function Article({ article }) {
           {formatDate(article.date)}
         </Card.Eyebrow>
         <Card.Description>{article.description}</Card.Description>
-        <Card.Cta>記事を読む</Card.Cta>
+        <Card.Cta>Raad</Card.Cta>
       </Card>
       <Card.Eyebrow
         as="time"
@@ -35,7 +35,7 @@ function Article({ article }) {
 export const metadata = {
   title: 'Articles',
   description:
-    'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
+    "Articles I've wrote",
 }
 
 export default async function ArticlesIndex() {
@@ -43,7 +43,7 @@ export default async function ArticlesIndex() {
 
   return (
     <SimpleLayout
-      title="記事一覧"
+      title="Articles Overview"
       intro="Please feel free to take a look."
     >
       <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
