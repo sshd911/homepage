@@ -8,16 +8,15 @@ import logoCommingsoon02 from '@/images/logos/logoCommingsoon02.svg'
 const projects = [
   {
     name: 'Comming soon...',
-    description:
-      '...',
-    link: { href: '#', label: '#' },
+    description: 'Under Construction...',
+    link: { href: 'http://project-01.sshd911.com', label: 'project-01.sshd911.com' },
     logo: logoCommingsoon01,
   },
   {
-    name: 'Coming soon...',
+    name: 'Comming soon...',
     description:
       '...',
-    link: { href: '#', label: '#' },
+    link: { href: 'http://project-02.sshd911.com', label: 'project-02.sshd911.com' },
     logo: logoCommingsoon02,
   },
 ]
@@ -35,7 +34,7 @@ function LinkIcon(props) {
 
 export const metadata = {
   title: 'Projects',
-  description: 'Things I’ve made trying to put my dent in the universe.',
+  description: 'Projects I’ve made.',
 }
 
 export default function Projects() {
