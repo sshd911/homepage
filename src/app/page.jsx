@@ -162,9 +162,8 @@ export default function About() {
           Sho Maeda
           </h1>
           <div className="mt-6 space-y-1 text-base text-zinc-600 dark:text-zinc-400">
-            <div>I usually work mainly in web development.</div>
-            <div>On this website, I plan to post my projects and articles!</div>
-            <div>Please feel free to visit!</div>
+            <div>Hi, I like web dev. On this website, I{`'`}m gonna post my work!</div>
+            <div>To be honest, I{`'`}m not quite sure what it is, or where it{`'`}s going but let{`'`}s say it{`'`}s a portfolio.</div>
           </div>
           <div className="pt-10">
             <Resume />
