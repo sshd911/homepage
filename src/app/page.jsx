@@ -3,24 +3,9 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon,
-} from '@/components/SocialIcons'
+import { GitHubIcon } from '@/components/SocialIcons'
 import CiLogo from '@/images/logos/CiLogo.webp'
 import UnivLogo from '@/images/logos/univLogo.webp'
-
-function ArrowDownIcon(props) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
 
 function Role({ role }) {
   let startLabel =
@@ -33,21 +18,21 @@ function Role({ role }) {
 
   return (
     <li className="flex gap-4">
-      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-zinc-900/5 border border-zinc-700/50 ring-0">
         <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
         <dt className="sr-only">Company</dt>
-        <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+        <dd className="w-full flex-none text-sm font-medium text-white">
           {role.company}
         </dd>
         <dt className="sr-only">Role</dt>
-        <dd className="text-xs text-zinc-600 dark:text-slate-300">
+        <dd className="text-xs text-white text-slate-300">
           {role.title}
         </dd>
         <dt className="sr-only">Date</dt>
         <dd
-          className="ml-auto text-xs text-zinc-600 dark:text-slate-300"
+          className="ml-auto text-xs text-white text-slate-300"
           aria-label={`${startLabel} until ${endLabel}`}
         >
           <time dateTime={startDate}>{startLabel}</time>{' '}
@@ -72,11 +57,11 @@ function BriefcaseIcon(props) {
     >
       <path
         d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
+        className="fill-zinc-100/10 stroke-zinc-500"
       />
       <path
         d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
+        className="stroke-zinc-500"
       />
     </svg>
   )
@@ -108,8 +93,8 @@ function Resume() {
   ]
 
   return (
-    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-zinc-950 dark:text-zinc-100">
+    <div className="rounded-2xl border border-zinc-100 p-6 border-zinc-700/40">
+      <h2 className="flex text-sm font-semibold text-white">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Career</span>
       </h2>
@@ -127,7 +112,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
     <li className={clsx(className, 'flex')}>
       <Link
         href={href}
-        className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+        className="group flex text-sm font-medium transition text-white hover:text-teal-500"
       >
         <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
         <span className="ml-4">{children}</span>
@@ -158,10 +143,10 @@ export default function About() {
     <Container className="mt-16 sm:mt-32">
       <div className="grid grid-cols-1 gap-y-12 lg:gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr]">
         <div className="order-first lg:row-span-2">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-white">
           Sho Maeda
           </h1>
-          <div className="mt-6 space-y-1 text-base text-zinc-600 dark:text-zinc-400">
+          <div className="mt-6 space-y-1 text-base text-white">
             <div>On this website, I{`'`}m gonna post my works.</div>
             <div>To be honest, I{`'`}m not quite sure what it is, or where it{`'`}s going but let{`'`}s say it{`'`}s a portfolio.</div>
           </div>
@@ -169,7 +154,7 @@ export default function About() {
             <Resume />
           </div>
         </div>
-        <div className="lg:pl-20 order-first lg:order-none">
+        <div className="z-50 lg:pl-20 order-first lg:order-none">
           <ul role="list">
             <SocialLink 
               href="https://github.com/sshd911" 
@@ -183,7 +168,7 @@ export default function About() {
             <SocialLink
               href="mailto:contact@sshd911.com"
               icon={MailIcon}
-              className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+              className="mt-8 border-t border-zinc-100 pt-8 border-zinc-700/40"
             >
               contact@sshd911.com
             </SocialLink>
