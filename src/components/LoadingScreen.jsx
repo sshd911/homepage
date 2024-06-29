@@ -5,12 +5,12 @@ import { gsap } from 'gsap';
 import _ from 'lodash';
 
 const randomInRange = (max, min) => Math.floor(Math.random() * (max - min + 1)) + min;
-const BASE_SIZE = 1;
-const VELOCITY_INC = 1.01;
-const VELOCITY_INIT_INC = 1.025;
-const JUMP_VELOCITY_INC = 1.25;
-const JUMP_SIZE_INC = 1.15;
-const SIZE_INC = 1.01;
+const BASE_SIZE = 0.5;
+const VELOCITY_INC = 1.1;
+const VELOCITY_INIT_INC = 1;
+const JUMP_VELOCITY_INC = 1;
+const JUMP_SIZE_INC = 1.1;
+const SIZE_INC = 1;
 const RAD = Math.PI / 180;
 const WARP_COLORS = [
     [197, 239, 247],
@@ -81,7 +81,7 @@ const LoadingScreen = () => {
         const render = () => {
             context.clearRect(0, 0, window.innerWidth, window.innerHeight);
             if (STATE.bgAlpha > 0) {
-                context.fillStyle = `rgba(31, 58, 157, ${STATE.bgAlpha})`;
+                context.fillStyle = `rgba(32, 32, 32, ${STATE.bgAlpha})`;
                 context.fillRect(0, 0, window.innerWidth, window.innerHeight);
             }
 
@@ -160,7 +160,7 @@ const LoadingScreen = () => {
             gsap.to(STATE, {
                 duration: 0.25,
                 velocity: VELOCITY_INIT_INC,
-                bgAlpha: 0.3,
+                bgAlpha: 0.1,
             });
 
             for (const star of STATE.stars.filter((s) => s.state.active)) {
@@ -181,7 +181,7 @@ const LoadingScreen = () => {
             gsap.to(STATE, {
                 duration: 0.25,
                 velocity: JUMP_VELOCITY_INC,
-                bgAlpha: 0.75,
+                bgAlpha: 0.5,
                 sizeInc: JUMP_SIZE_INC,
             });
 
@@ -203,7 +203,7 @@ const LoadingScreen = () => {
             STATE.initiating = false;
             STATE.initiateTimestamp = undefined;
 
-            if (new Date().getTime() - initiateTimestamp > 600) {
+            if (new Date().getTime() - initiateTimestamp > 100) {
                 jump();
             } else {
                 gsap.to(STATE, { duration: 0.25, velocity: VELOCITY_INC, bgAlpha: 0 });
