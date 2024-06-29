@@ -46,7 +46,7 @@ class Star {
         const travelled = Math.random() > 0.5
             ? Math.random() * Math.max(window.innerWidth, window.innerHeight) + Math.random() * (window.innerWidth * 0.24)
             : Math.random() * (window.innerWidth * 0.25);
-        
+
         this.state = {
             ...this.state,
             iX: undefined,
