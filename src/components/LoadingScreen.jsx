@@ -1,11 +1,10 @@
 'use client';
 
 import { useEffect } from 'react';
-import { TweenMax } from 'gsap';
+import { gsap } from 'gsap';
 import _ from 'lodash';
 
-const randomInRange = (max, min) =>
-    Math.floor(Math.random() * (max - min + 1)) + min;
+const randomInRange = (max, min) => Math.floor(Math.random() * (max - min + 1)) + min;
 const BASE_SIZE = 1;
 const VELOCITY_INC = 1.01;
 const VELOCITY_INIT_INC = 1.025;
@@ -22,21 +21,34 @@ const WARP_COLORS = [
 ];
 
 class Star {
-    STATE = {
-        alpha: Math.random(),
-        angle: randomInRange(0, 360) * RAD,
-    };
+    constructor() {
+        this.state = {
+            alpha: Math.random(),
+            angle: randomInRange(0, 360) * RAD,
+            active: false,
+            size: BASE_SIZE,
+            x: 0,
+            y: 0,
+            vX: 0,
+            vY: 0,
+            iX: undefined,
+            iY: undefined,
+            iVX: undefined,
+            iVY: undefined
+        };
+        this.reset();
+    }
 
-    reset = () => {
+    reset() {
         const angle = randomInRange(0, 360) * RAD;
         const vX = Math.cos(angle);
         const vY = Math.sin(angle);
-        const travelled =
-            Math.random() > 0.5
-                ? Math.random() * Math.max(window.innerWidth, window.innerHeight) + Math.random() * (window.innerWidth * 0.24)
-                : Math.random() * (window.innerWidth * 0.25);
-        this.STATE = {
-            ...this.STATE,
+        const travelled = Math.random() > 0.5
+            ? Math.random() * Math.max(window.innerWidth, window.innerHeight) + Math.random() * (window.innerWidth * 0.24)
+            : Math.random() * (window.innerWidth * 0.25);
+        
+        this.state = {
+            ...this.state,
             iX: undefined,
             iY: undefined,
             active: travelled ? true : false,
@@ -46,10 +58,6 @@ class Star {
             vY,
             size: BASE_SIZE,
         };
-    };
-
-    constructor() {
-        this.reset();
     }
 }
 
@@ -62,6 +70,9 @@ const LoadingScreen = () => {
             bgAlpha: 0,
             sizeInc: SIZE_INC,
             velocity: VELOCITY_INC,
+            initiating: false,
+            jumping: false,
+            initiateTimestamp: undefined
         };
 
         const canvas = document.createElement('canvas');
@@ -74,24 +85,15 @@ const LoadingScreen = () => {
                 context.fillRect(0, 0, window.innerWidth, window.innerHeight);
             }
 
-            const nonActive = STATE.stars.filter((s) => !s.STATE.active);
+            const nonActive = STATE.stars.filter((s) => !s.state.active);
             if (!STATE.initiating && nonActive.length > 0) {
-                nonActive[0].STATE.active = true;
+                nonActive[0].state.active = true;
             }
 
-            for (const star of STATE.stars.filter((s) => s.STATE.active)) {
+            for (const star of STATE.stars.filter((s) => s.state.active)) {
                 const {
-                    active,
-                    x,
-                    y,
-                    iX,
-                    iY,
-                    iVX,
-                    iVY,
-                    size,
-                    vX,
-                    vY,
-                } = star.STATE;
+                    active, x, y, iX, iY, iVX, iVY, size, vX, vY,
+                } = star.state;
 
                 if (
                     ((iX || x) < 0 ||
@@ -101,7 +103,7 @@ const LoadingScreen = () => {
                     active &&
                     !STATE.initiating
                 ) {
-                    star.reset(true);
+                    star.reset();
                 } else if (active) {
                     const newIX = STATE.initiating ? iX : iX + iVX;
                     const newIY = STATE.initiating ? iY : iY + iVY;
@@ -114,36 +116,34 @@ const LoadingScreen = () => {
                         (vY < 0 && newIY < y) ||
                         (vY > 0 && newIY > y);
 
-                    star.STATE = {
-                        ...star.STATE,
+                    star.state = {
+                        ...star.state,
                         iX: caught ? undefined : newIX,
                         iY: caught ? undefined : newIY,
                         iVX: caught ? undefined : iVX * VELOCITY_INIT_INC,
                         iVY: caught ? undefined : iVY * VELOCITY_INIT_INC,
                         x: newX,
-                        vX: star.STATE.vX * STATE.velocity,
+                        vX: star.state.vX * STATE.velocity,
                         y: newY,
-                        vY: star.STATE.vY * STATE.velocity,
+                        vY: star.state.vY * STATE.velocity,
                         size: STATE.initiating
                             ? size
                             : size * (iX || iY ? SIZE_INC : STATE.sizeInc),
                     };
 
-                    let color = `rgba(255, 255, 255, ${star.STATE.alpha})`;
+                    let color = `rgba(255, 255, 255, ${star.state.alpha})`;
                     if (STATE.jumping) {
                         const [
-                            r,
-                            g,
-                            b,
-                        ] = WARP_COLORS[randomInRange(0, WARP_COLORS.length)];
-                        color = `rgba(${r}, ${g}, ${b}, ${star.STATE.alpha})`;
+                            r, g, b,
+                        ] = WARP_COLORS[randomInRange(0, WARP_COLORS.length - 1)];
+                        color = `rgba(${r}, ${g}, ${b}, ${star.state.alpha})`;
                     }
 
                     context.strokeStyle = color;
                     context.lineWidth = size;
                     context.beginPath();
-                    context.moveTo(star.STATE.iX || x, star.STATE.iY || y);
-                    context.lineTo(star.STATE.x, star.STATE.y);
+                    context.moveTo(star.state.iX || x, star.state.iY || y);
+                    context.lineTo(star.state.x, star.state.y);
                     context.stroke();
                 }
             }
@@ -157,18 +157,19 @@ const LoadingScreen = () => {
             STATE.initiating = true;
             STATE.initiateTimestamp = new Date().getTime();
 
-            TweenMax.to(STATE, 0.25, {
+            gsap.to(STATE, {
+                duration: 0.25,
                 velocity: VELOCITY_INIT_INC,
                 bgAlpha: 0.3,
             });
 
-            for (const star of STATE.stars.filter((s) => s.STATE.active)) {
-                star.STATE = {
-                    ...star.STATE,
-                    iX: star.STATE.x,
-                    iY: star.STATE.y,
-                    iVX: star.STATE.vX,
-                    iVY: star.STATE.vY,
+            for (const star of STATE.stars.filter((s) => s.state.active)) {
+                star.state = {
+                    ...star.state,
+                    iX: star.state.x,
+                    iY: star.state.y,
+                    iVX: star.state.vX,
+                    iVY: star.state.vY,
                 };
             }
         };
@@ -177,7 +178,8 @@ const LoadingScreen = () => {
             STATE.bgAlpha = 0;
             STATE.jumping = true;
 
-            TweenMax.to(STATE, 0.25, {
+            gsap.to(STATE, {
+                duration: 0.25,
                 velocity: JUMP_VELOCITY_INC,
                 bgAlpha: 0.75,
                 sizeInc: JUMP_SIZE_INC,
@@ -185,7 +187,8 @@ const LoadingScreen = () => {
 
             setTimeout(() => {
                 STATE.jumping = false;
-                TweenMax.to(STATE, 0.25, {
+                gsap.to(STATE, {
+                    duration: 0.25,
                     bgAlpha: 0,
                     velocity: VELOCITY_INC,
                     sizeInc: SIZE_INC,
@@ -203,7 +206,7 @@ const LoadingScreen = () => {
             if (new Date().getTime() - initiateTimestamp > 600) {
                 jump();
             } else {
-                TweenMax.to(STATE, 0.25, { velocity: VELOCITY_INC, bgAlpha: 0 });
+                gsap.to(STATE, { duration: 0.25, velocity: VELOCITY_INC, bgAlpha: 0 });
             }
         };
 
@@ -229,24 +232,22 @@ const LoadingScreen = () => {
             setup();
         };
 
+        const debouncedReset = _.debounce(reset, 250);
+
         setup();
         document.body.appendChild(canvas);
         bind();
         render();
 
-        window.addEventListener(
-            'resize',
-            _.debounce(() => {
-                reset();
-            }, 250)
-        );
+        window.addEventListener('resize', debouncedReset);
 
         return () => {
-            window.removeEventListener('resize', reset);
+            window.removeEventListener('resize', debouncedReset);
             canvas.removeEventListener('mousedown', initiate);
             canvas.removeEventListener('touchstart', initiate);
             canvas.removeEventListener('mouseup', enter);
             canvas.removeEventListener('touchend', enter);
+            document.body.removeChild(canvas);
         };
     }, []);
 
