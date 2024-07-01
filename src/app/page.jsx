@@ -1,109 +1,57 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import clsx from 'clsx'
-
 import { Container } from '@/components/Container'
 import { GitHubIcon } from '@/components/SocialIcons'
-import CiLogo from '@/images/logos/CiLogo.webp'
-import UnivLogo from '@/images/logos/univLogo.webp'
+import Link from 'next/link'
+import clsx from 'clsx'
+import Image from 'next/image'
+import { Card } from '@/components/Card'
+import { SimpleLayout } from '@/components/SimpleLayout'
+import logoCommingsoon01 from '@/images/logos/logoCommingsoon01.svg'
+import logoCommingsoon02 from '@/images/logos/logoCommingsoon02.svg'
+import { getAllArticles } from '@/lib/articles'
+import { formatDate } from '@/lib/formatDate'
 
-function Role({ role }) {
-  let startLabel =
-    typeof role.start === 'string' ? role.start : role.start.label
-  let startDate =
-    typeof role.start === 'string' ? role.start : role.start.dateTime
-
-  let endLabel = typeof role.end === 'string' ? role.end : role.end.label
-  let endDate = typeof role.end === 'string' ? role.end : role.end.dateTime
-
-  return (
-    <li className="flex gap-4">
-      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-zinc-900/5 border border-zinc-700/50 ring-0">
-        <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
-      </div>
-      <dl className="flex flex-auto flex-wrap gap-x-2">
-        <dt className="sr-only">Company</dt>
-        <dd className="w-full flex-none text-sm font-medium text-white">
-          {role.company}
-        </dd>
-        <dt className="sr-only">Role</dt>
-        <dd className="text-xs text-white text-slate-300">
-          {role.title}
-        </dd>
-        <dt className="sr-only">Date</dt>
-        <dd
-          className="ml-auto text-xs text-white text-slate-300"
-          aria-label={`${startLabel} until ${endLabel}`}
-        >
-          <time dateTime={startDate}>{startLabel}</time>{' '}
-          <span aria-hidden="true">—</span>{' '}
-          <time dateTime={endDate}>{endLabel}</time>
-        </dd>
-      </dl>
-    </li>
-  )
+export const metadata = {
+  title: 'Homepage',
+  description: "sshd911's homepage",
 }
 
-function BriefcaseIcon(props) {
+const projects = [
+  {
+    name: 'Comming soon...',
+    description: 'Under Construction...',
+    link: {
+      href: 'http://project-01.sshd911.com',
+      label: 'project-01.sshd911.com',
+    },
+    logo: logoCommingsoon01,
+  },
+  {
+    name: 'Comming soon...',
+    description: 'Under Construction...',
+    link: {
+      href: 'http://project-02.sshd911.com',
+      label: 'project-02.sshd911.com',
+    },
+    logo: logoCommingsoon02,
+  },
+]
+
+const supports = [
+  {
+    name: 'bitcoin',
+    address: 'bc1qhatlg6vs5sc95pfgzly39axtgxztcfqq5pgtkp',
+    url: 'https://google.com',
+  },
+]
+
+function LinkIcon(props) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
-        d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100/10 stroke-zinc-500"
-      />
-      <path
-        d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
-        className="stroke-zinc-500"
+        d="M15.712 11.823a.75.75 0 1 0 1.06 1.06l-1.06-1.06Zm-4.95 1.768a.75.75 0 0 0 1.06-1.06l-1.06 1.06Zm-2.475-1.414a.75.75 0 1 0-1.06-1.06l1.06 1.06Zm4.95-1.768a.75.75 0 1 0-1.06 1.06l1.06-1.06Zm3.359.53-.884.884 1.06 1.06.885-.883-1.061-1.06Zm-4.95-2.12 1.414-1.415L12 6.344l-1.415 1.413 1.061 1.061Zm0 3.535a2.5 2.5 0 0 1 0-3.536l-1.06-1.06a4 4 0 0 0 0 5.656l1.06-1.06Zm4.95-4.95a2.5 2.5 0 0 1 0 3.535L17.656 12a4 4 0 0 0 0-5.657l-1.06 1.06Zm1.06-1.06a4 4 0 0 0-5.656 0l1.06 1.06a2.5 2.5 0 0 1 3.536 0l1.06-1.06Zm-7.07 7.07.176.177 1.06-1.06-.176-.177-1.06 1.06Zm-3.183-.353.884-.884-1.06-1.06-.884.883 1.06 1.06Zm4.95 2.121-1.414 1.414 1.06 1.06 1.415-1.413-1.06-1.061Zm0-3.536a2.5 2.5 0 0 1 0 3.536l1.06 1.06a4 4 0 0 0 0-5.656l-1.06 1.06Zm-4.95 4.95a2.5 2.5 0 0 1 0-3.535L6.344 12a4 4 0 0 0 0 5.656l1.06-1.06Zm-1.06 1.06a4 4 0 0 0 5.657 0l-1.061-1.06a2.5 2.5 0 0 1-3.535 0l-1.061 1.06Zm7.07-7.07-.176-.177-1.06 1.06.176.178 1.06-1.061Z"
+        fill="currentColor"
       />
     </svg>
-  )
-}
-
-function Resume() {
-  let resume = [
-    {
-      company: 'University of Chuo, Tokyo, Japan',
-      title: 'Registration',
-      logo: UnivLogo,
-      start: '2021/4',
-      end: ''
-    },
-    {
-      company: 'Ci Co.',
-      title: 'Web Engineering Intern',
-      logo: CiLogo,
-      start: '2022/4',
-      end: '2023/4',
-    },
-    {
-      company: 'University of Chuo, Tokyo, Japan',
-      title: 'Graduation',
-      logo: UnivLogo,
-      start: '',
-      end: '2025/3',
-    },
-  ]
-
-  return (
-    <div className="rounded-2xl border border-zinc-100 p-6 border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-white">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Career</span>
-      </h2>
-      <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
-          <Role key={roleIndex} role={role} />
-        ))}
-      </ol>
-    </div>
   )
 }
 
@@ -112,7 +60,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
     <li className={clsx(className, 'flex')}>
       <Link
         href={href}
-        className="group flex text-sm font-medium transition text-white hover:text-teal-500"
+        className="group flex text-sm font-medium text-white transition hover:text-teal-500"
       >
         <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
         <span className="ml-4">{children}</span>
@@ -132,47 +80,125 @@ function MailIcon(props) {
   )
 }
 
-export const metadata = {
-  title: 'About',
-  description: 'Homepage',
+function Article({ article }) {
+  return (
+    <article className="md:grid md:grid-cols-4 md:items-baseline">
+      <Card className="md:col-span-3">
+        <Card.Title href={`/articles/${article.slug}`}>
+          {article.title}
+        </Card.Title>
+        <Card.Eyebrow
+          as="time"
+          dateTime={article.date}
+          className="md:hidden"
+          decorate
+        >
+          {formatDate(article.date)}
+        </Card.Eyebrow>
+        <Card.Description>{article.description}</Card.Description>
+        <Card.Cta>Raad</Card.Cta>
+      </Card>
+      <Card.Eyebrow
+        as="time"
+        dateTime={article.date}
+        className="mt-1 hidden md:block"
+      >
+        {formatDate(article.date)}
+      </Card.Eyebrow>
+    </article>
+  )
 }
 
+export default async function result() {
+  let articles = await getAllArticles()
 
-export default function About() {
   return (
-    <Container className="mt-16 sm:mt-32">
-      <div className="grid grid-cols-1 gap-y-12 lg:gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr]">
+    <Container className="m-16 sm:m-32 pb-10">
+      <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-16">
         <div className="order-first lg:row-span-2">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-white">
-          Sho Maeda
-          </h1>
-          <div className="mt-6 space-y-1 text-base text-white">
-            <div>On this website, I{`'`}m gonna post my works.</div>
-            <div>To be honest, I{`'`}m not quite sure what it is, or where it{`'`}s going but let{`'`}s say it{`'`}s a portfolio.</div>
+          <div className="animate-gradient-x bg-gradient-to-r from-white via-pink-500 to-black bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
+            Sho Maeda
           </div>
-          <div className="pt-10">
-            <Resume />
+          <div className="mt-6 space-y-1 text-base text-white">
+            {`On this website, I'm gonna post my works.`}
+            <br />
+            {`To be honest, I'm not quite sure what it is, or where it's going but let's say it's a portfolio.`}
           </div>
         </div>
-        <div className="z-50 lg:pl-20 order-first lg:order-none">
+        <div className="z-50 lg:order-none lg:pl-20 lg:pt-[50px]">
           <ul role="list">
-            <SocialLink 
-              href="https://github.com/sshd911" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              icon={GitHubIcon} 
-              className="mt-4"
-            >
+            <SocialLink href="https://github.com/sshd911" icon={GitHubIcon}>
               GitHub
             </SocialLink>
             <SocialLink
               href="mailto:contact@sshd911.com"
               icon={MailIcon}
-              className="mt-8 border-t border-zinc-100 pt-8 border-zinc-700/40"
+              className="mt-8 border-t border-zinc-100 border-zinc-700/40 pt-8"
             >
               contact@sshd911.com
             </SocialLink>
           </ul>
+        </div>
+      </div>
+      <div>
+        <div className="animate-gradient-x bg-gradient-to-r from-white via-pink-500 to-black bg-clip-text pt-10 text-4xl font-bold tracking-tight text-transparent sm:text-5xl lg:pt-0">
+          OverView
+        </div>
+        <div className="space-y-20">
+          <SimpleLayout title="Projects">
+            <ul
+              role="list"
+              className="grid grid-cols-1 gap-x-6 gap-y-16 lg:grid-cols-2"
+            >
+              {projects.map((project) => (
+                <Card as="li" key={project.name}>
+                  <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-zinc-700/50 shadow-md shadow-zinc-800/5 ring-0 ring-zinc-900/5">
+                    <Image src={project.logo} alt="" className="h-8 w-8" />
+                  </div>
+                  <h2 className="mt-6 text-base font-semibold text-white">
+                    <Card.Link href={project.link.href}>
+                      {project.name}
+                    </Card.Link>
+                  </h2>
+                  <Card.Description>{project.description}</Card.Description>
+                  <p className="relative z-10 mt-6 flex text-sm font-medium text-white transition group-hover:text-teal-500">
+                    <LinkIcon className="h-6 w-6 flex-none" />
+                    <span className="">{project.link.label}</span>
+                  </p>
+                </Card>
+              ))}
+            </ul>
+          </SimpleLayout>
+          <SimpleLayout title="Articles">
+            <div className="md:border-l md:border-zinc-100 md:border-zinc-700/40 md:pl-6">
+              <div className="mx-auto flex flex-col space-y-16">
+                {articles.map((article) => (
+                  <Article key={article.slug} article={article} />
+                ))}
+              </div>
+            </div>
+          </SimpleLayout>
+          <SimpleLayout title="Support" className="">
+            <div className="md:border-l md:border-zinc-100 md:border-zinc-700/40 md:pl-6">
+              <div className="mx-auto flex flex-col space-y-16">
+                {supports.map((support) => (
+                  <div
+                    key={support.name}
+                    className="md:grid md:grid-cols-4 md:items-baseline"
+                  >
+                    <Card as="li" className="md:col-span-3">
+                      {/* <Card.Title href={supp・ort.url}></Card.Title> */}
+                      <Card.Description>{support.address}</Card.Description>
+                      {/* <Card.Cta>Donate</Card.Cta> */}
+                    </Card>
+                    <Card.Eyebrow className="mt-1 hidden md:block">
+                      {support.name}
+                    </Card.Eyebrow>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </SimpleLayout>
         </div>
       </div>
     </Container>
