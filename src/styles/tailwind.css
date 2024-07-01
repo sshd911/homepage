@@ -3,10 +3,12 @@
 @tailwind utilities;
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+    background-color: black;
+    
 }
 
-#sec {
+/* #sec { */
     /* position: relative; */
     /* display: flex; */
     /* align-items: center; */
@@ -14,21 +16,21 @@ body {
     /* width: 400px; */
     /* height: 310px; */
     /* animation-duration: 2s; */
-    animation-name: cube-rotate;
+    /* animation-name: cube-rotate;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-timing-function: ease-in-out;
-}
+} */
 
 /* Isolation creates a new stacking context for mix-blend-mode. See: https://developer.mozilla.org/en-US/docs/Web/CSS/isolation */
-.isolate {
+/* .isolate {
     isolation: isolate;
     position: absolute;
     top: 0;
     height: 100%;
     width: 100%;
-}
-
+} */
+/* 
 @keyframes cube-rotate {
     from {
         transform: perspective(100vw) rotate3d(0, 0, 0, 10deg);
@@ -47,7 +49,7 @@ body {
     to {
         filter: contrast(190%) brightness(130%);
     }
-}
+} */
 
 /* .noise {
     width: 100%;

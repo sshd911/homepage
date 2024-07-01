@@ -29,7 +29,7 @@ export function Card({ as, className, children }) {
 Card.Link = function CardLink({ children, ...props }) {
   return (
     <>
-      <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl bg-zinc-800/50" />
+      <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl bg-zinc-800/50 font-bold" />
       <Link {...props}>
         <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 rounded-2xl border border-zinc-100 p-8 border-zinc-700/40"/>
         <span className="relative z-10">{children}</span>
@@ -42,7 +42,7 @@ Card.Title = function CardTitle({ as, href, children }) {
   let Component = as ?? 'h2'
 
   return (
-    <Component className="text-base font-semibold tracking-tight text-white text-white">
+    <Component className="text-base font-semibold tracking-tight text-white">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
@@ -50,7 +50,7 @@ Card.Title = function CardTitle({ as, href, children }) {
 
 Card.Description = function CardDescription({ children }) {
   return (
-    <p className="relative z-10 mt-2 text-sm text-white text-white">
+    <p className="relative z-10 mt-2 text-sm text-white font-semibold">
       {children}
     </p>
   )
@@ -60,10 +60,10 @@ Card.Cta = function CardCta({ children }) {
   return (
     <div
       aria-hidden="true"
-      className="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
+      className="relative z-10 mt-4 flex items-center text-sm font-medium"
     >
       {children}
-      <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
+      <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current font-semibold" />
     </div>
   )
 }
@@ -81,17 +81,17 @@ Card.Eyebrow = function CardEyebrow({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-white text-white',
+        'relative z-10 order-first mb-3 flex items-center text-sm text-white font-semibold',
         decorate && 'pl-3.5',
       )}
       {...props}
     >
       {decorate && (
         <span
-          className="absolute inset-y-0 left-0 flex items-center"
+          className="absolute inset-y-0 left-0 flex items-center font-semibold"
           aria-hidden="true"
         >
-          <span className="h-4 w-0.5 rounded-full bg-zinc-200 bg-zinc-500" />
+          <span className="h-4 w-0.5 rounded-full bg-zinc-200 font-semibold" />
         </span>
       )}
       {children}

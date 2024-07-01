@@ -58,7 +58,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
     <li className={clsx(className, 'flex')}>
       <Link
         href={href}
-        className="group flex text-sm font-medium text-white transition hover:text-teal-500"
+        className="group flex text-sm font-medium text-white transition"
       >
         <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
         <span className="ml-4">{children}</span>
@@ -109,15 +109,16 @@ function Article({ article }) {
 
 export default async function result() {
   let articles = await getAllArticles()
-
+  // const [resultText, setResultText] = useState();
+  
   return (
     <Container className="m-16 pb-10">
       <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-16">
         <div className="order-first lg:row-span-2">
-          <div className="animate-gradient-x bg-gradient-to-r from-white via-pink-500 to-black bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
+          <div className="text-white text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
             Sho Maeda
           </div>
-          <div className="mt-6 space-y-1 text-base text-white">
+          <div className="mt-6 space-y-1 text-base text-white font-semibold">
             {`On this website, I'm gonna post my works.`}
             <br />
             {`To be honest, I'm not quite sure what it is, or where it's going but let's say it's a portfolio.`}
@@ -139,7 +140,7 @@ export default async function result() {
         </div>
       </div>
       <div>
-        <div className="animate-gradient-x bg-gradient-to-r from-white via-pink-500 to-black bg-clip-text pt-10 text-4xl font-bold tracking-tight text-transparent sm:text-5xl lg:pt-0">
+        <div className="text-white pt-10 text-4xl font-bold tracking-tight text-transparent sm:text-5xl lg:pt-0">
           OverView
         </div>
         <div className="space-y-20">
@@ -168,7 +169,7 @@ export default async function result() {
                     </Card.Link>
                   </h2>
                   <Card.Description>{project.description}</Card.Description>
-                  <p className="relative z-10 mt-6 flex text-sm font-medium text-white transition group-hover:text-teal-500">
+                  <p className="relative z-10 mt-6 flex text-sm font-medium text-white transition">
                     <LinkIcon className="h-6 w-6 flex-none" />
                     <span className="">{project.link.label}</span>
                   </p>
@@ -194,8 +195,9 @@ export default async function result() {
                     className="md:grid md:grid-cols-4 md:items-baseline"
                   >
                     <Card as="li" className="md:col-span-3">
-                      {/* <Card.Title href={supp・ort.url}></Card.Title> */}
-                      <Card.Description>{support.address}</Card.Description>
+                      <Card.Description>
+                        {support.address} 
+                      </Card.Description>
                       {/* <Card.Cta>Donate</Card.Cta> */}
                     </Card>
                     <Card.Eyebrow className="mt-1 hidden md:block">
