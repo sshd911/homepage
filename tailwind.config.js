@@ -1,11 +1,8 @@
 const typographyPlugin = require('@tailwindcss/typography')
-
 const typographyStyles = require('./typography')
 
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
-  // darkMode: 'selector',
   plugins: [typographyPlugin],
   theme: {
     fontSize: {
@@ -23,21 +20,6 @@ module.exports = {
       '8xl': ['6rem', { lineHeight: '1' }],
       '9xl': ['8rem', { lineHeight: '1' }],
     },
-    // animation: {
-    //   'gradient-xy': 'gradient-xy 6s ease infinite',
-    // },
-    // keyframes: {
-    //   'gradient-xy': {
-    //     '0%, 100%': {
-    //       'background-size': '200% 200%',
-    //       'background-position': 'left center',
-    //     },
-    //     '50%': {
-    //       'background-size': '200% 200%',
-    //       'background-position': 'right center',
-    //     },
-    //   },
-    // },
     typography: typographyStyles,
   },
 }

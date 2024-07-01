@@ -109,14 +109,13 @@ function Article({ article }) {
 
 export default async function result() {
   let articles = await getAllArticles()
-  // const [resultText, setResultText] = useState();
   
   return (
     <Container className="m-16 pb-10">
       <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-16">
         <div className="order-first lg:row-span-2">
           <div className="text-white text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
-            Sho Maeda
+            sshd911
           </div>
           <div className="mt-6 space-y-1 text-base text-white font-semibold">
             {`On this website, I'm gonna post my works.`}
