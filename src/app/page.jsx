@@ -1,5 +1,5 @@
 import { Container } from '@/components/Container'
-import { GitHubIcon } from '@/components/SocialIcons'
+import { SocialIcons } from '@/components/SocialIcons'
 import Link from 'next/link'
 import clsx from 'clsx'
 // import Image from 'next/image'
@@ -60,21 +60,10 @@ function SocialLink({ className, href, children, icon: Icon }) {
         href={href}
         className="group flex text-sm font-medium text-white transition"
       >
-        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
-  )
-}
-
-function MailIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path
-        fillRule="evenodd"
-        d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
-      />
-    </svg>
   )
 }
 
@@ -109,29 +98,40 @@ function Article({ article }) {
 
 export default async function result() {
   let articles = await getAllArticles()
-  
+
   return (
     <Container className="m-16 pb-10">
       <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-16">
         <div className="order-first lg:row-span-2">
-          <div className="text-white text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
+          <div className="text-4xl font-bold tracking-tight text-transparent text-white sm:text-5xl">
             sshd911
           </div>
-          <div className="mt-6 space-y-1 text-base text-white font-semibold">
-            {`On this website, I'm gonna post my works.`}
+          <div className="mt-6 space-y-1 text-base font-semibold text-white">
+            {`I guess I'm gonna post my works...`}
             <br />
             {`To be honest, I'm not quite sure what it is, or where it's going.`}
           </div>
         </div>
         <div className="z-50 lg:order-none lg:pl-20 lg:pt-[50px]">
-          <ul role="list">
-            <SocialLink href="https://github.com/sshd911" icon={GitHubIcon}>
+          <ul role="list" className="space-y-4">
+            <SocialLink
+              href="https://github.com/sshd911"
+              icon={SocialIcons.github}
+            >
               GitHub
             </SocialLink>
             <SocialLink
+              href="https://t.me/sshd911"
+              icon={SocialIcons.telegram}
+              className="border-t border-zinc-100 border-zinc-700/40 pt-4"
+            >
+              Telegram
+            </SocialLink>
+            {/* console.log('saving') */}
+            <SocialLink
               href="mailto:contact@sshd911.com"
-              icon={MailIcon}
-              className="mt-8 border-t border-zinc-100 border-zinc-700/40 pt-8"
+              icon={SocialIcons.mail}
+              className="border-t border-zinc-100 border-zinc-700/40 pt-4 line-through"
             >
               contact@sshd911.com
             </SocialLink>
@@ -139,8 +139,8 @@ export default async function result() {
         </div>
       </div>
       <div>
-        <div className="text-white pt-10 text-4xl font-bold tracking-tight text-transparent sm:text-5xl lg:pt-0">
-          OverView
+        <div className="pt-10 text-4xl font-bold tracking-tight text-transparent text-white sm:text-5xl lg:pt-0">
+          Overview
         </div>
         <div className="space-y-20">
           <SimpleLayout title="Projects">
@@ -185,7 +185,7 @@ export default async function result() {
               </div>
             </div>
           </SimpleLayout>
-          <SimpleLayout title="Support" className="">
+          <SimpleLayout title="Supports" className="">
             <div className="md:border-l md:border-zinc-100 md:border-zinc-700/40 md:pl-6">
               <div className="mx-auto flex flex-col space-y-16">
                 {supports.map((support) => (
@@ -194,9 +194,7 @@ export default async function result() {
                     className="md:grid md:grid-cols-4 md:items-baseline"
                   >
                     <Card className="md:col-span-3">
-                      <Card.Description>
-                        {support.address} 
-                      </Card.Description>
+                      <Card.Description>{support.address}</Card.Description>
                       {/* <Card.Cta>Donate</Card.Cta> */}
                     </Card>
                     <Card.Eyebrow className="mt-1 hidden md:block">
