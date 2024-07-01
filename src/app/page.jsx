@@ -2,11 +2,9 @@ import { Container } from '@/components/Container'
 import { GitHubIcon } from '@/components/SocialIcons'
 import Link from 'next/link'
 import clsx from 'clsx'
-import Image from 'next/image'
+// import Image from 'next/image'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoCommingsoon01 from '@/images/logos/logoCommingsoon01.svg'
-import logoCommingsoon02 from '@/images/logos/logoCommingsoon02.svg'
 import { getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
@@ -23,7 +21,7 @@ const projects = [
       href: 'http://project-01.sshd911.com',
       label: 'project-01.sshd911.com',
     },
-    logo: logoCommingsoon01,
+    // logo: logoCommingsoon,
   },
   {
     name: 'Comming soon...',
@@ -32,7 +30,7 @@ const projects = [
       href: 'http://project-02.sshd911.com',
       label: 'project-02.sshd911.com',
     },
-    logo: logoCommingsoon02,
+    // logo: logoCommingsoon,
   },
 ]
 
@@ -113,7 +111,7 @@ export default async function result() {
   let articles = await getAllArticles()
 
   return (
-    <Container className="m-16 sm:m-32 pb-10">
+    <Container className="m-16 pb-10">
       <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-16">
         <div className="order-first lg:row-span-2">
           <div className="animate-gradient-x bg-gradient-to-r from-white via-pink-500 to-black bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
@@ -148,12 +146,21 @@ export default async function result() {
           <SimpleLayout title="Projects">
             <ul
               role="list"
-              className="grid grid-cols-1 gap-x-6 gap-y-16 lg:grid-cols-2"
+              className="grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2"
             >
-              {projects.map((project) => (
-                <Card as="li" key={project.name}>
+              {projects.map((project, index) => (
+                <Card
+                  as="li"
+                  key={project.name}
+                  className={`${
+                    projects.length % 2 !== 0 && index === projects.length - 1
+                      ? 'sm:col-span-2'
+                      : ''
+                  }`}
+                >
                   <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-zinc-700/50 shadow-md shadow-zinc-800/5 ring-0 ring-zinc-900/5">
-                    <Image src={project.logo} alt="" className="h-8 w-8" />
+                    {/* <Image src={project.logo} alt="" className="h-8 w-8" /> */}
+                    ?
                   </div>
                   <h2 className="mt-6 text-base font-semibold text-white">
                     <Card.Link href={project.link.href}>
