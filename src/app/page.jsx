@@ -194,7 +194,7 @@ export default async function result() {
                     key={support.name}
                     className="md:grid md:grid-cols-4 md:items-baseline"
                   >
-                    <Card as="li" className="md:col-span-3">
+                    <Card className="md:col-span-3">
                       <Card.Description>
                         {support.address} 
                       </Card.Description>
