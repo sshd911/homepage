@@ -120,7 +120,7 @@ export default async function result() {
           <div className="mt-6 space-y-1 text-base text-white font-semibold">
             {`On this website, I'm gonna post my works.`}
             <br />
-            {`To be honest, I'm not quite sure what it is, or where it's going but let's say it's a portfolio.`}
+            {`To be honest, I'm not quite sure what it is, or where it's going.`}
           </div>
         </div>
         <div className="z-50 lg:order-none lg:pl-20 lg:pt-[50px]">
